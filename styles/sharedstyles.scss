@@ -1,0 +1,497 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// font-family: 'Abril Fatface', cursive;
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'Poppins', sans-serif;
+
+// * {
+//   border: 1px solid pink;
+// }
+
+$deep-red: #d89f9f;
+$light-red: #ffdddd;
+$dark-red: #772222;
+$darker-red: #552222;
+
+$light-gold: #ccbb66;
+$dark-gold: #665522;
+$deep-gold: #aa9933;
+
+$light-blue: #44ffdd;
+$dark-blue: #112244;
+$darker-blue: #001133;
+$deep-blue: #225588;
+
+$background: $dark-blue;
+$highlight: $light-gold;
+$highlight2: $light-blue;
+
+$monospace: "Roboto Mono", monospace;
+$serif: "Abril Fatface", serif;
+$sans: "Poppins", sans-serif;
+
+body {
+  font-size: 16px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@mixin text-shadow-hover {
+  text-shadow: 2px 4px 2px black;
+}
+
+@mixin text-small {
+  font-size: clamp(1em, calc(1em + 0.25vw), 1.5vw);
+}
+@mixin text-medium {
+  font-size: clamp(1.25em, calc(1.5em + 1.5vw), 2vw);
+}
+@mixin text-large {
+  font-size: clamp(1.75em, calc(2em + 1.5vw), 5vw);
+}
+@mixin text-huge {
+  font-size: clamp(2.5em, calc(3em + 2vw), 10vw);
+}
+
+.logo {
+  @include text-large;
+  font-family: $serif;
+  color: $highlight;
+  letter-spacing: 1px;
+  &:hover {
+  }
+}
+h1 {
+  @include text-huge;
+  @include text-shadow-hover;
+  font-family: $sans;
+  color: $highlight;
+  letter-spacing: 4px;
+}
+
+h2 {
+  @include text-large;
+  @include text-shadow-hover;
+  font-family: $sans;
+  color: $highlight;
+  letter-spacing: 1px;
+}
+
+h3 {
+  @include text-medium;
+  font-family: $sans;
+  color: $highlight;
+  letter-spacing: 1px;
+}
+
+p {
+  @include text-small;
+  font-family: $sans;
+  color: white;
+  letter-spacing: 1px;
+}
+
+// **********  Outer Layer  **********
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $monospace;
+  // border: 1px solid white;
+}
+
+#page {
+  width: 100vw;
+  max-width: 100%;
+  background-color: $background;
+  display: flex;
+  flex-direction: column;
+
+  #header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    z-index: 100;
+    // background: #00000050;
+    background: $darker-blue;
+    box-shadow: 0 0 10px 0px black;
+    .logo {
+      color: $highlight;
+      @include text-large;
+
+    
+    }
+  }
+
+  #nav {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 2rem;
+    @include text-small;
+
+    .navlink {
+      .navlink-number {
+        color: $highlight;
+      }
+      .navlink-word {
+        color: white;
+        transition: color 200ms;
+      }
+      &:hover {
+        .navlink-word {
+          color: $highlight;
+          // font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .like-a-button-container {
+    border: 1px solid $highlight;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: $highlight;
+    font-weight: 700;
+    transition: background-color 400ms, color 200ms;
+    width: fit-content;
+
+    &:hover {
+      background-color: $highlight;
+      color: $background;
+    }
+  }
+
+  .side-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 99;
+    @include text-medium;
+  }
+
+  .left-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0 clamp(24px, 2vw, 48px);
+    line-height: clamp(24px, 2vw, 48px);
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-icon {
+      color: $highlight;
+      padding: 0.5rem 0;
+      @include text-medium;
+      &:hover {
+      animation: bounce 2s infinite;
+
+        scale: 1.2;
+      }
+    }
+
+    .spacing-bar {
+      align-self: center;
+      justify-content: center;
+      margin: auto;
+      height: 10vh;
+      width: 2px;
+      background-color: $highlight;
+    }
+  }
+
+  .right-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 0 clamp(24px, 2vw, 48px);
+    line-height: clamp(24px, 2vw, 48px);
+
+    .email-link {
+      color: $highlight;
+      padding: 0.5rem 0;
+      writing-mode: vertical-lr;
+      font-family: $monospace;
+      letter-spacing: 1px;
+      transition: letter-spacing 200ms;
+
+      &:hover {
+        letter-spacing: 2px;
+        transform: trnaslateY(-8px);
+        color: white;
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      bottom: auto;
+      right: auto;
+      top: 0;
+      left: 0;
+      rotate: 180deg;
+      .spacing-bar {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .spacing-bar {
+    align-self: center;
+    justify-content: center;
+    margin: auto;
+    height: 10vh;
+    width: 2px;
+    background-color: $highlight;
+  }
+  // end out layer
+}
+// REMOVE CONTENT FROM #PAGE -kevin
+
+// **********  Inner Layer  **********
+//
+
+#page-content {
+  section {
+    scroll-margin-top: 80px;
+    position: relative;
+    padding: clamp(80px, 20em, 10vh) clamp(80px, 20em, 10vw);
+    margin: clamp(80px, 20em, 10vh) 0;
+    min-height: 100vh;
+    width: 100%;
+    color: white;
+
+    .section-header {
+      @include text-medium;
+      color: $highlight;
+      position: absolute;
+      top: 12px;
+      left: 10vw;
+      width: 80%;
+      box-shadow: 0px 1px $highlight;
+    }
+
+    .section-top{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      // background: red;
+      gap: 2rem;
+      padding: 2rem;
+
+      .section-title {
+        @include text-large;
+        color: $highlight;
+        text-align: center;
+      }
+      .section-subtitle {
+        @include text-medium;
+        color: $highlight;
+        text-align: center;
+      }
+    }
+
+
+    .section-content {
+      display: flex;
+      gap: 2rem;
+      flex-direction: row;
+
+      .section-image-container {
+        // width: clamp(200px, 30vw, 50%);
+        height: fit-content;
+        border: 4px solid $highlight;
+        box-shadow: 4px 4px 4px 0px black;
+        position: relative;
+        top: 4px;
+        left: 4px;
+
+        transition: box-shadow 400ms, top 400ms, left 4 00ms;
+        &:hover {
+          box-shadow: 12px 12px 4px 0px black;
+          top: -4px;
+          left: -4px;
+        }
+
+        .section-image {
+          width: 100%;
+          object-fit: cover;
+          vertical-align: middle;
+        }
+      }
+
+      .section-text-block {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-justify: right;
+      }
+    }
+
+    //align items left, default
+    &:nth-child(odd) {
+      .section-content {
+        flex-direction: row;
+      }
+    }
+
+    //align items right
+    &:nth-child(even) {
+      .section-content {
+        flex-direction: row-reverse;
+      }
+    }
+
+
+    .section-content {
+      @media screen and (max-width: 1000px) {
+        .section-image-container {
+            max-width: 300px;
+          }
+      }
+      
+    }
+    .section-content {
+      @media screen and (max-width: 700px) {
+        .section-image-container {
+          display: none;
+        }
+      }
+      
+    }
+
+  }
+
+  .section-list {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    @include text-small;
+    gap: 1rem;
+    white-space: nowrap;
+    .list-item {
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 0 2rem;
+      &:hover {
+        color: $highlight;
+        font-weight: 600;
+        .list-icon {
+          animation: bounce-rotate 2s;
+        }
+      }
+      .list-icon {
+        color: $highlight;
+        margin: 0 0.5rem;
+        @include text-medium;
+      }
+    }
+  }
+}
+
+// Projects
+
+#projects {
+  .section-content {
+    display: flex;
+    width: 100%;
+  }
+  .project-container {
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 24vw));
+    padding: 0.5rem;
+    gap: 0.5rem;
+
+    .project-card {
+      background: $deep-blue;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 4px 4px 4px 0px rgb(2, 2, 2);
+      transition: box-shadow 200ms, border 200ms, z-index 200ms;
+      border: 2px solid transparent;
+      &:hover {
+        .project-icon {
+          color: $highlight;
+        }
+        border: 2px solid $highlight;
+        z-index: 4;
+      }
+      .project-card-top {
+        display: flex;
+        justify-content: space-between;
+        .project-icon {
+          font-size: 4rem;
+        }
+
+        .project-links {
+          font-size: 2rem;
+        }
+      }
+
+      .project-title {
+        color: white;
+      }
+      .project-description {
+      }
+
+      .project-icons {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 0;
+        .project-icon {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+// END CONTENT
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-rotate {
+  0% {
+    transform: rotateY(0deg) translateY(-8px) scale(1.5);
+  }
+  50% {
+    transform: rotateY(360deg) scale(1);
+  }
+  100% {
+    transform: rotateY(0deg) scale(1);
+  }
+}

@@ -1,0 +1,565 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  font-size: 16px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.logo {
+  font-size: clamp(1.75em, 2em + 1.5vw, 5vw);
+  font-family: "Abril Fatface", serif;
+  color: #ccbb66;
+  letter-spacing: 1px;
+}
+h1 {
+  font-size: clamp(2.5em, 3em + 2vw, 10vw);
+  text-shadow: 2px 4px 2px black;
+  font-family: "Poppins", sans-serif;
+  color: #ccbb66;
+  letter-spacing: 4px;
+}
+
+h2 {
+  font-size: clamp(1.75em, 2em + 1.5vw, 5vw);
+  text-shadow: 2px 4px 2px black;
+  font-family: "Poppins", sans-serif;
+  color: #ccbb66;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
+  font-family: "Poppins", sans-serif;
+  color: #ccbb66;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: clamp(1em, 1em + 0.25vw, 1.5vw);
+  font-family: "Poppins", sans-serif;
+  color: white;
+  letter-spacing: 1px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+}
+
+#page {
+  width: 100vw;
+  max-width: 100%;
+  background-color: #112244;
+  display: flex;
+  flex-direction: column;
+}
+#page #header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 100;
+  background: #001133;
+  box-shadow: 0 0 10px 0px black;
+}
+#page #header .logo {
+  color: #ccbb66;
+  font-size: clamp(1.75em, 2em + 1.5vw, 5vw);
+}
+#page #nav {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 2rem;
+  font-size: clamp(1em, 1em + 0.25vw, 1.5vw);
+}
+#page #nav .navlink .navlink-number {
+  color: #ccbb66;
+}
+#page #nav .navlink .navlink-word {
+  color: white;
+  transition: color 200ms;
+}
+#page #nav .navlink:hover .navlink-word {
+  color: #ccbb66;
+}
+#page .like-a-button-container {
+  border: 1px solid #ccbb66;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: #ccbb66;
+  font-weight: 700;
+  transition: background-color 400ms, color 200ms;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#page .like-a-button-container:hover {
+  background-color: #ccbb66;
+  color: #112244;
+}
+#page .side-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 99;
+  font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
+}
+#page .left-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0 clamp(24px, 2vw, 48px);
+  line-height: clamp(24px, 2vw, 48px);
+}
+#page .left-container .social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#page .left-container .social-icon {
+  color: #ccbb66;
+  padding: 0.5rem 0;
+  font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
+}
+#page .left-container .social-icon:hover {
+  -webkit-animation: bounce 2s infinite;
+          animation: bounce 2s infinite;
+  scale: 1.2;
+}
+#page .left-container .spacing-bar {
+  align-self: center;
+  justify-content: center;
+  margin: auto;
+  height: 10vh;
+  width: 2px;
+  background-color: #ccbb66;
+}
+#page .right-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 0 clamp(24px, 2vw, 48px);
+  line-height: clamp(24px, 2vw, 48px);
+}
+#page .right-container .email-link {
+  color: #ccbb66;
+  padding: 0.5rem 0;
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  font-family: "Roboto Mono", monospace;
+  letter-spacing: 1px;
+  transition: letter-spacing 200ms;
+}
+#page .right-container .email-link:hover {
+  letter-spacing: 2px;
+  transform: trnaslateY(-8px);
+  color: white;
+}
+@media screen and (max-width: 1200px) {
+  #page .right-container {
+    bottom: auto;
+    right: auto;
+    top: 0;
+    left: 0;
+    rotate: 180deg;
+  }
+  #page .right-container .spacing-bar {
+    background-color: transparent;
+  }
+}
+#page .spacing-bar {
+  align-self: center;
+  justify-content: center;
+  margin: auto;
+  height: 10vh;
+  width: 2px;
+  background-color: #ccbb66;
+}
+
+#page-content section {
+  scroll-margin-top: 80px;
+  position: relative;
+  padding: clamp(80px, 20em, 10vh) clamp(80px, 20em, 10vw);
+  margin: clamp(80px, 20em, 10vh) 0;
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+}
+#page-content section .section-header {
+  font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
+  color: #ccbb66;
+  position: absolute;
+  top: 12px;
+  left: 10vw;
+  width: 80%;
+  box-shadow: 0px 1px #ccbb66;
+}
+#page-content section .section-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+  padding: 2rem;
+}
+#page-content section .section-top .section-title {
+  font-size: clamp(1.75em, 2em + 1.5vw, 5vw);
+  color: #ccbb66;
+  text-align: center;
+}
+#page-content section .section-top .section-subtitle {
+  font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
+  color: #ccbb66;
+  text-align: center;
+}
+#page-content section .section-content {
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+}
+#page-content section .section-content .section-image-container {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 4px solid #ccbb66;
+  box-shadow: 4px 4px 4px 0px black;
+  position: relative;
+  top: 4px;
+  left: 4px;
+  transition: box-shadow 400ms, top 400ms, left 4 0ms;
+}
+#page-content section .section-content .section-image-container:hover {
+  box-shadow: 12px 12px 4px 0px black;
+  top: -4px;
+  left: -4px;
+}
+#page-content section .section-content .section-image-container .section-image {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: middle;
+}
+#page-content section .section-content .section-text-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-justify: right;
+}
+#page-content section:nth-child(odd) .section-content {
+  flex-direction: row;
+}
+#page-content section:nth-child(even) .section-content {
+  flex-direction: row-reverse;
+}
+@media screen and (max-width: 1000px) {
+  #page-content section .section-content .section-image-container {
+    max-width: 300px;
+  }
+}
+@media screen and (max-width: 700px) {
+  #page-content section .section-content .section-image-container {
+    display: none;
+  }
+}
+#page-content .section-list {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: clamp(1em, 1em + 0.25vw, 1.5vw);
+  gap: 1rem;
+  white-space: nowrap;
+}
+#page-content .section-list .list-item {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0 2rem;
+}
+#page-content .section-list .list-item:hover {
+  color: #ccbb66;
+  font-weight: 600;
+}
+#page-content .section-list .list-item:hover .list-icon {
+  -webkit-animation: bounce-rotate 2s;
+          animation: bounce-rotate 2s;
+}
+#page-content .section-list .list-item .list-icon {
+  color: #ccbb66;
+  margin: 0 0.5rem;
+  font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
+}
+
+#projects .section-content {
+  display: flex;
+  width: 100%;
+}
+#projects .project-container {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 24vw));
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+#projects .project-container .project-card {
+  background: #225588;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 4px 4px 4px 0px rgb(2, 2, 2);
+  transition: box-shadow 200ms, border 200ms, z-index 200ms;
+  border: 2px solid transparent;
+}
+#projects .project-container .project-card:hover {
+  border: 2px solid #ccbb66;
+  z-index: 4;
+}
+#projects .project-container .project-card:hover .project-icon {
+  color: #ccbb66;
+}
+#projects .project-container .project-card .project-card-top {
+  display: flex;
+  justify-content: space-between;
+}
+#projects .project-container .project-card .project-card-top .project-icon {
+  font-size: 4rem;
+}
+#projects .project-container .project-card .project-card-top .project-links {
+  font-size: 2rem;
+}
+#projects .project-container .project-card .project-title {
+  color: white;
+}
+#projects .project-container .project-card .project-icons {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+#projects .project-container .project-card .project-icons .project-icon {
+  font-size: 2rem;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes bounce-rotate {
+  0% {
+    transform: rotateY(0deg) translateY(-8px) scale(1.5);
+  }
+  50% {
+    transform: rotateY(360deg) scale(1);
+  }
+  100% {
+    transform: rotateY(0deg) scale(1);
+  }
+}
+@keyframes bounce-rotate {
+  0% {
+    transform: rotateY(0deg) translateY(-8px) scale(1.5);
+  }
+  50% {
+    transform: rotateY(360deg) scale(1);
+  }
+  100% {
+    transform: rotateY(0deg) scale(1);
+  }
+}
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+}
+
+#page {
+  width: 100vw;
+  max-width: 100%;
+  background-color: #112244;
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 100;
+  background: #552222;
+}
+#header .logo {
+  color: #ccbb66;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: letter-spacing 200ms;
+}
+#header .logo:hover {
+  letter-spacing: 2px;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 2rem;
+  font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
+}
+#nav .navlink .navlink-number {
+  color: #ccbb66;
+}
+#nav .navlink .navlink-word {
+  color: white;
+  transition: color 200ms;
+}
+#nav .navlink:hover .navlink-word {
+  color: #ccbb66;
+}
+
+.like-a-button-container {
+  border: 1px solid #ccbb66;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: #ccbb66;
+  font-weight: 700;
+  transition: background-color 400ms, color 200ms;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.like-a-button-container:hover {
+  background-color: #ccbb66;
+  color: #112244;
+}
+
+.side-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 99;
+}
+
+.left-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0 0.5rem;
+}
+.left-container .social-links {
+  display: flex;
+  flex-direction: column;
+}
+.left-container .social-icon {
+  color: #ccbb66;
+  padding: 0.5rem 0;
+  transition: transform 0.3s ease-in-out;
+}
+.left-container .social-icon:hover {
+  transform: translateY(-8px);
+}
+.left-container .spacing-bar {
+  align-self: center;
+  justify-content: center;
+  margin: auto;
+  height: 80px;
+  width: 1px;
+  background-color: #ccbb66;
+}
+
+.right-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 0 0.5rem;
+}
+.right-container .email-link {
+  color: #ccbb66;
+  padding: 0.5rem 0;
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  font-family: "Roboto Mono", monospace;
+  letter-spacing: 1px;
+  transition: letter-spacing 200ms;
+  line-height: 32px;
+}
+.right-container .email-link:hover {
+  letter-spacing: 2px;
+  transform: trnaslateY(-8px);
+}
+@media screen and (max-width: 1200px) {
+  .right-container {
+    bottom: auto;
+    right: auto;
+    top: 0;
+    left: 0;
+    rotate: 180deg;
+  }
+  .right-container .spacing-bar {
+    background-color: transparent;
+  }
+}
+
+.spacing-bar {
+  align-self: center;
+  justify-content: center;
+  margin: auto;
+  height: 80px;
+  width: 1px;
+  background-color: #ccbb66;
+}/*# sourceMappingURL=outerlayer.css.map */
