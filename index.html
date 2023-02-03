@@ -4,15 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="./styles/content.css" /> -->
-    <!-- <link rel="stylesheet" href="./styles/outerlayer.css" /> -->
     <link rel="stylesheet" href="./styles/sharedstyles.css" />
     <script
       src="https://kit.fontawesome.com/582ae40cce.js"
       crossorigin="anonymous"></script>
-    <script src="./projects.js" type="module"></script>
+    <script src="./projects.js" type="module" defer></script>
     <script src="./script.js" type="module" defer></script>
-    <title>Document</title>
+    <script src="./skills.js" defer></script>
+    <title>Kevin Riley</title>
   </head>
 
   <body>
@@ -43,7 +42,7 @@
           </li>
 
           <li class="navlink">
-            <a href="#contacts">
+            <a href="#contact">
               <span class="navlink-number">04.</span>
               <span class="navlink-word">Contact</span>
             </a>
@@ -106,27 +105,14 @@
                 <h1>Kevin Riley</h1>
                 <h3>a Frontend Developer in Canada.</h3>
               </div>
-              <div class="section-image-container">
+              <!-- <div class="section-image-container">
                 <img class="section-image" src="./chicken.bmp" alt="" />
-              </div>
+              </div> -->
             </div>
-
-           
-         
-
           </div>
           <div class="section-text-block">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-              inventore et obcaecati mollitia delectus doloremque unde
-              reiciendis quidem exercitationem assumenda. Necessitatibus
-              reiciendis inventore asperiores a beatae vel aspernatur neque
-              repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Illum ex minima magni voluptatum, beatae porro totam est
-              ratione tempora id!
-            </p>
+            <p></p>
           </div>
-
         </section>
 
         <!-- ---------------------------------------------------------------------- -->
@@ -137,9 +123,8 @@
               <img class="section-image" src="./chicken.bmp" alt="" />
             </div>
             <div class="section-text-block">
-              <h1>Hello, its me</h1>
-              <h1>Kevin Riley</h1>
-              <h3>a Frontend Developer in Canada.</h3>
+              <h3>Some stuff about me</h3>
+              <h2>goes here</h2>
               <p>
                 Years of working in restaurants has honed me into a finely tuned
                 machine, while simultaneously making me a terrible person. I
@@ -164,151 +149,59 @@
           </div>
 
           <div class="section-content">
-            <ul class="section-list">
-              <li class="list-item" class="list-item">
-                <span> HTML <i class="list-icon fab fa-html5"></i> </span>
-              </li>
-
-              <li class="list-item">
-                <span>CSS <i class="list-icon fab fa-css3-alt"></i> </span>
-              </li>
-
-              <li class="list-item">
-                <span
-                  >JavaScript <i class="list-icon fab fa-js-square"></i>
-                </span>
-              </li>
-
-              <li class="list-item">
-                <span>React <i class="list-icon fab fa-react"></i> </span>
-              </li>
-
-              <li class="list-item">
-                <span>Node <i class="list-icon fab fa-node-js"></i> </span>
-              </li>
-
-              <li class="list-item">
-                <span
-                  >PostgresSQL <i class="list-icon fas fa-database"></i>
-                </span>
-              </li>
-
-              <li class="list-item">
-                <span>Git <i class="list-icon fab fa-git-alt"></i> </span>
-              </li>
-
-              <li class="list-item">
-                <span>Github <i class="list-icon fab fa-github"></i> </span>
-              </li>
-
-              <li class="list-item">
-                <span>VS Code <i class="list-icon fab fa-codepen"></i> </span>
-              </li>
-
-              <li class="list-item">
-                <span>Terminal <i class="list-icon fas fa-terminal"></i> </span>
-              </li>
-
-              <li class="list-item">
-                <span>NPM <i class="list-icon fab fa-npm"></i> </span>
-              </li>
-
-              <li class="list-item">
-                <span>Yarn <i class="list-icon fab fa-yarn"></i> </span>
-              </li>
-            </ul>
+            <ul class="section-list" id="skills-list"></ul>
           </div>
         </section>
 
         <!--------------------------- SECTION TEMPLATE ----------------------------->
         <section id="work">
           <h2 class="section-header">02. work</h2>
+
           <div class="section-content">
-            <div class="section-image-container">
-              <img class="section-image" src="./chicken.bmp" alt="" />
+            <div class="seaction-text-image">
+              <h1>Work History</h1>
+              <h3>How do you measure a life?</h3>
             </div>
-            <div class="section-text-block">
-              <h1>Hello, its me</h1>
-              <h1>Kevin Riley</h1>
-              <h3>a Frontend Developer in Canada.</h3>
+
+            <div class="section-text-image">
               <p>
                 Years of working in restaurants has honed me into a finely tuned
                 machine, while simultaneously making me a terrible person. I
                 have a passion for learning and I am always looking for new ways
                 to improve myself.
-                <br />
-                <br />
-                I am a self-taught developer who is always looking to learn
-                more. I am currently working on a few projects and I am always
-                looking for new opportunities. My experience in restaurant
-                managment lead to my love of spreadsheets, and started my
-                journey into the world of computer science.
-                <br />
-                <br />
+              </p>
+              <div class="section-image-container">
+                <img class="section-image" src="./cocktail.jpg" alt="" />
+              </div>
+            </div>
+
+            <div class="section-text-image">
+              <p>
                 I began pursuing my Bachelor degree shortly after COVID-19 gave
                 me the opportunity to try new things. I am new in the field of
                 web development, but I am always looking for new opportunities
                 to learn and grow. I am currently working on a few projects and
                 I am always looking for new opportunities.
               </p>
+
+              <div class="section-image-container">
+                <img class="section-image" src="./kegs.jpg" alt="" />
+              </div>
+            </div>
+
+            <div class="section-text-image">
+              <p>
+                I am a self-taught developer who is always looking to learn
+                more. I am currently working on a few projects and I am always
+                looking for new opportunities. My experience in restaurant
+                managment lead to my love of spreadsheets, and started my
+                journey into the world of computer science.
+              </p>
+              <div class="section-image-container">
+                <img class="section-image" src="./fish.jpg" alt="" />
+              </div>
             </div>
           </div>
-
-          <ul class="section-list">
-            <li class="list-item" class="list-item">
-              <span> HTML <i class="list-icon fab fa-html5"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>CSS <i class="list-icon fab fa-css3-alt"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span
-                >JavaScript <i class="list-icon fab fa-js-square"></i>
-              </span>
-            </li>
-
-            <li class="list-item">
-              <span>React <i class="list-icon fab fa-react"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>Node <i class="list-icon fab fa-node-js"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span
-                >PostgresSQL <i class="list-icon fas fa-database"></i>
-              </span>
-            </li>
-
-            <li class="list-item">
-              <span>Git <i class="list-icon fab fa-git-alt"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>Github <i class="list-icon fab fa-github"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>VS Code <i class="list-icon fab fa-codepen"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>Terminal <i class="list-icon fas fa-terminal"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>NPM <i class="list-icon fab fa-npm"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>Yarn <i class="list-icon fab fa-yarn"></i> </span>
-            </li>
-
-            <li></li>
-          </ul>
         </section>
 
         <section id="projects">
@@ -322,90 +215,7 @@
 
         <section id="contact">
           <h2 class="section-header">04. contact</h2>
-          <div class="section-content">
-            <div class="section-image-container">
-              <img class="section-image" src="./chicken.bmp" alt="" />
-            </div>
-            <div class="section-text-block">
-              <h1>Hello, its me</h1>
-              <h1>Kevin Riley</h1>
-              <h3>a Frontend Developer in Canada.</h3>
-              <p>
-                Years of working in restaurants has honed me into a finely tuned
-                machine, while simultaneously making me a terrible person. I
-                have a passion for learning and I am always looking for new ways
-                to improve myself.
-                <br />
-                <br />
-                I am a self-taught developer who is always looking to learn
-                more. I am currently working on a few projects and I am always
-                looking for new opportunities. My experience in restaurant
-                managment lead to my love of spreadsheets, and started my
-                journey into the world of computer science.
-                <br />
-                <br />
-                I began pursuing my Bachelor degree shortly after COVID-19 gave
-                me the opportunity to try new things. I am new in the field of
-                web development, but I am always looking for new opportunities
-                to learn and grow. I am currently working on a few projects and
-                I am always looking for new opportunities.
-              </p>
-            </div>
-          </div>
-
-          <ul class="section-list">
-            <li class="list-item" class="list-item">
-              <span> HTML <i class="list-icon fab fa-html5"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>CSS <i class="list-icon fab fa-css3-alt"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span
-                >JavaScript <i class="list-icon fab fa-js-square"></i>
-              </span>
-            </li>
-
-            <li class="list-item">
-              <span>React <i class="list-icon fab fa-react"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>Node <i class="list-icon fab fa-node-js"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span
-                >PostgresSQL <i class="list-icon fas fa-database"></i>
-              </span>
-            </li>
-
-            <li class="list-item">
-              <span>Git <i class="list-icon fab fa-git-alt"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>Github <i class="list-icon fab fa-github"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>VS Code <i class="list-icon fab fa-codepen"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>Terminal <i class="list-icon fas fa-terminal"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>NPM <i class="list-icon fab fa-npm"></i> </span>
-            </li>
-
-            <li class="list-item">
-              <span>Yarn <i class="list-icon fab fa-yarn"></i> </span>
-            </li>
-          </ul>
+          <div class="section-content"></div>
         </section>
       </div>
     </div>

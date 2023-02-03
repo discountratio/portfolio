@@ -13,16 +13,23 @@ $light-red: #ffdddd;
 $dark-red: #772222;
 $darker-red: #552222;
 
-$light-gold: #ccbb66;
+$light-gold: #f0d966;
 $dark-gold: #665522;
-$deep-gold: #aa9933;
+$deep-gold: #bba528;
 
 $light-blue: #44ffdd;
 $dark-blue: #112244;
 $darker-blue: #001133;
 $deep-blue: #225588;
+$alt-blue: #0f203f;
 
-$background: $dark-blue;
+$background: #333;
+$header-background: #222;
+$text-highlight-1: #eec14e;
+$text-highlight-2: $light-blue;
+$text-color-light: #ffffff;
+$text-color-dark: #000000;
+
 $highlight: $light-gold;
 $highlight2: $light-blue;
 
@@ -35,6 +42,15 @@ body {
 }
 html {
   scroll-behavior: smooth;
+}
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 @mixin text-shadow-hover {
@@ -62,6 +78,7 @@ html {
   &:hover {
   }
 }
+
 h1 {
   @include text-huge;
   @include text-shadow-hover;
@@ -80,6 +97,7 @@ h2 {
 
 h3 {
   @include text-medium;
+  @include text-shadow-hover;
   font-family: $sans;
   color: $highlight;
   letter-spacing: 1px;
@@ -128,13 +146,11 @@ a {
     padding: 0 1rem;
     z-index: 100;
     // background: #00000050;
-    background: $darker-blue;
+    background: $header-background;
     box-shadow: 0 0 10px 0px black;
     .logo {
-      color: $highlight;
+      color: $text-highlight-1;
       @include text-large;
-
-    
     }
   }
 
@@ -147,15 +163,15 @@ a {
 
     .navlink {
       .navlink-number {
-        color: $highlight;
+        color: $text-highlight-1;
       }
       .navlink-word {
-        color: white;
+        color: $text-color-light;
         transition: color 200ms;
       }
       &:hover {
         .navlink-word {
-          color: $highlight;
+          color: $text-highlight-1;
           // font-size: 1.5rem;
         }
       }
@@ -166,14 +182,14 @@ a {
     border: 1px solid $highlight;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    color: $highlight;
+    color: $text-highlight-1;
     font-weight: 700;
     transition: background-color 400ms, color 200ms;
     width: fit-content;
 
     &:hover {
-      background-color: $highlight;
-      color: $background;
+      background-color: $text-highlight-1;
+      color: $header-background;
     }
   }
 
@@ -201,11 +217,11 @@ a {
     }
 
     .social-icon {
-      color: $highlight;
+      color: $text-highlight-1;
       padding: 0.5rem 0;
       @include text-medium;
       &:hover {
-      animation: bounce 2s infinite;
+        animation: bounce 2s infinite;
 
         scale: 1.2;
       }
@@ -217,7 +233,7 @@ a {
       margin: auto;
       height: 10vh;
       width: 2px;
-      background-color: $highlight;
+      background-color: $text-highlight-1;
     }
   }
 
@@ -229,7 +245,7 @@ a {
     line-height: clamp(24px, 2vw, 48px);
 
     .email-link {
-      color: $highlight;
+      color: $text-highlight-1;
       padding: 0.5rem 0;
       writing-mode: vertical-lr;
       font-family: $monospace;
@@ -239,7 +255,7 @@ a {
       &:hover {
         letter-spacing: 2px;
         transform: trnaslateY(-8px);
-        color: white;
+        color: $text-highlight-1;
       }
     }
 
@@ -261,7 +277,7 @@ a {
     margin: auto;
     height: 10vh;
     width: 2px;
-    background-color: $highlight;
+    background-color: $text-highlight-1;
   }
   // end out layer
 }
@@ -275,14 +291,14 @@ a {
     scroll-margin-top: 80px;
     position: relative;
     padding: clamp(80px, 20em, 10vh) clamp(80px, 20em, 10vw);
-    margin: clamp(80px, 20em, 10vh) 0;
+    margin: 10px 0;
     min-height: 100vh;
     width: 100%;
-    color: white;
+    color: $text-color-light;
 
     .section-header {
       @include text-medium;
-      color: $highlight;
+      color: $text-highlight-1;
       position: absolute;
       top: 12px;
       left: 10vw;
@@ -290,7 +306,7 @@ a {
       box-shadow: 0px 1px $highlight;
     }
 
-    .section-top{
+    .section-top {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -302,109 +318,100 @@ a {
 
       .section-title {
         @include text-large;
-        color: $highlight;
+        color: $text-highlight-1;
         text-align: center;
       }
       .section-subtitle {
         @include text-medium;
-        color: $highlight;
+        color: $text-highlight-1;
         text-align: center;
       }
     }
+    .section-image-container {
+      height: fit-content;
+      border: 4px solid $text-highlight-1;
+      box-shadow: 4px 4px 4px 0px black;
+      position: relative;
+      top: 4px;
+      left: 4px;
+      margin: 1rem;
 
+      transition: box-shadow 400ms, top 400ms, left 4 00ms;
+      // &:hover {
+      //   box-shadow: 12px 12px 4px 0px black;
+      //   top: -4px;
+      //   left: -4px;
+      // }
+
+      .section-image {
+        width: 100%;
+        object-fit: cover;
+        vertical-align: middle;
+      }
+    }
 
     .section-content {
       display: flex;
-      gap: 2rem;
-      flex-direction: row;
+      // gap: 2rem;
+      // flex-direction: column;
+    }
 
-      .section-image-container {
-        // width: clamp(200px, 30vw, 50%);
-        height: fit-content;
-        border: 4px solid $highlight;
-        box-shadow: 4px 4px 4px 0px black;
-        position: relative;
-        top: 4px;
-        left: 4px;
+    // //align items left, default
+    // &:nth-child(odd) {
+    //   .section-content {
+    //     flex-direction: row;
+    //   }
+    // }
 
-        transition: box-shadow 400ms, top 400ms, left 4 00ms;
-        &:hover {
-          box-shadow: 12px 12px 4px 0px black;
-          top: -4px;
-          left: -4px;
-        }
+    // //align items right
+    // &:nth-child(even) {
+    //   .section-content {
+    //     flex-direction: row-reverse;
+    //   }
+    // }
 
-        .section-image {
-          width: 100%;
-          object-fit: cover;
-          vertical-align: middle;
-        }
-      }
+    .section-text-block {
+      width: 100%;
+    }
 
-      .section-text-block {
+    .section-list {
+      margin: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      @include text-small;
+      gap: 1rem;
+      white-space: nowrap;
+      .list-item {
         display: flex;
-        flex-direction: column;
-        width: 100%;
-        text-justify: right;
-      }
-    }
-
-    //align items left, default
-    &:nth-child(odd) {
-      .section-content {
-        flex-direction: row;
-      }
-    }
-
-    //align items right
-    &:nth-child(even) {
-      .section-content {
         flex-direction: row-reverse;
+        padding: 0 2rem;
+        &:hover {
+          color: $text-highlight-1;
+          font-weight: 600;
+          .list-icon {
+            animation: bounce-rotate 2s;
+          }
+        }
+        .list-icon {
+          color: $text-highlight-1;
+          margin: 0 0.5rem;
+          @include text-medium;
+        }
       }
     }
-
 
     .section-content {
       @media screen and (max-width: 1000px) {
         .section-image-container {
-            max-width: 300px;
-          }
+          max-width: 300px;
+        }
       }
-      
     }
     .section-content {
       @media screen and (max-width: 700px) {
         .section-image-container {
           display: none;
         }
-      }
-      
-    }
-
-  }
-
-  .section-list {
-    margin: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    @include text-small;
-    gap: 1rem;
-    white-space: nowrap;
-    .list-item {
-      display: flex;
-      flex-direction: row-reverse;
-      padding: 0 2rem;
-      &:hover {
-        color: $highlight;
-        font-weight: 600;
-        .list-icon {
-          animation: bounce-rotate 2s;
-        }
-      }
-      .list-icon {
-        color: $highlight;
-        margin: 0 0.5rem;
-        @include text-medium;
       }
     }
   }
@@ -435,9 +442,6 @@ a {
       transition: box-shadow 200ms, border 200ms, z-index 200ms;
       border: 2px solid transparent;
       &:hover {
-        .project-icon {
-          color: $highlight;
-        }
         border: 2px solid $highlight;
         z-index: 4;
       }
@@ -454,11 +458,16 @@ a {
       }
 
       .project-title {
-        color: white;
+        color: $text-color-light;
       }
       .project-description {
       }
 
+      .project-links a {
+        &:hover {
+          color: $text-highlight-1;
+        }
+      }
       .project-icons {
         display: flex;
         gap: 1rem;
@@ -471,6 +480,53 @@ a {
   }
 }
 
+#hero {
+  .section-top {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+
+    .section-text-block {
+      width: 100%;
+      white-space: nowrap;
+      text-shadow: 2px 2px 2px black;
+    }
+  }
+}
+
+#work {
+  .section-content {
+    @include flex-column();
+    .section-text-image:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .section-text-image {
+    @include flex-row;
+    padding: 2rem;
+    width: 100%;
+    justify-content: space-between;
+    max-height: 30vh;
+    p {
+      width: 80%;
+      padding: 1rem;
+      z-index: 2;
+      color: $text-color-light;
+      text-shadow: 2px 2px 2px black;
+    }
+    img {
+    }
+    .section-image-container {
+      position: relative;
+      top: 0;
+      max-height: 100%;
+      z-index: 1;
+      border: none;
+      filter: brightness(40%);
+    }
+  }
+}
 // END CONTENT
 @keyframes bounce {
   0% {

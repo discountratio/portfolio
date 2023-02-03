@@ -1,79 +1,56 @@
 export const skills = [
-    {
-        id: 1,
-        title: 'HTML',
-        icon: 'html5',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-    {
-        id: 2,
-        title: 'CSS',
-        icon: 'css3-alt',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-    {
-        id: 3,
-        title: 'JavaScript',
-        icon: 'js-square',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-    {
-        id: 4,
-        title: 'React',
-        icon: 'react',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-    {
-        id: 5,
-        title: 'Node',
-        icon: 'node-js',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-    {
-        id: 6,
-        title: 'MongoDB',
-        icon: 'database',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-    {
-        id: 7,
-        title: 'Git',
-        icon: 'git-alt',
+  {
+    id: 1,
+    title: "HTML",
+    icon: "fab fa-html5",
+  },
+  {
+    id: 2,
+    title: "CSS",
+    icon: "fab fa-css3-alt",
+  },
+  {
+    id: 3,
+    title: "JavaScript",
+    icon: "fab fa-js-square",
+  },
+  {
+    id: 4,
+    title: "React",
+    icon: "fab fa-react",
+  },
+  {
+    id: 5,
+    title: "Node",
+    icon: "fab fa-node-js",
+  },
+  {
+    id: 6,
+    title: "PostgreSQL",
+    icon: "fas fa-database",
+  },
+  {
+    id: 7,
+    title: "Git",
+    icon: "fab fa-git-alt",
+  },
+  {
+    id: 8,
+    title: "GitHub",
+    icon: "fab fa-github",
+  },
+  {
+    id: 9,
+    title: "codepen",
+    icon: "fab fa-codepen",
+  },
+  {
+    id: 10,
+    title: "npm",
+    icon: "fab fa-npm",
+  },
+];
 
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-    {
-        id: 8,
-        title: 'GitHub',
-        icon: 'github',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-    {
-        id: 9,
-        title: 'NPM',
-        icon: 'npm',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-    {
-        id: 10,
-        title: 'Terminal',
-        icon: 'terminal',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-    {
-        id: 11,
-        title: 'VS Code',
-        icon: 'code',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-            
-        },
-    {
-        id: 12,
-        title: 'Figma',
-        icon: 'figma',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, sapiente.'
-    },
-]
+
 
 export default skills;
-            
