@@ -208,6 +208,7 @@ a {
   color: #ffffff;
 }
 #page-content section .section-header {
+  z-index: 99;
   font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
   color: #eec14e;
   position: absolute;

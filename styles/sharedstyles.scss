@@ -297,6 +297,7 @@ a {
     color: $text-color-light;
 
     .section-header {
+      z-index: 99;
       @include text-medium;
       color: $text-highlight-1;
       position: absolute;
