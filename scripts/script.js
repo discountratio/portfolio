@@ -16,7 +16,7 @@ const projects = [
       "Vite",
       "Chakra UI",
     ],
-    image: "/assets/language-project.jpg",
+    image: "./assets/language-project.jpg",
     link: "https://github.com/discountratio/userprofile",
     preview:
       "https://htmlpreview.github.io/?https://github.com/discountratio/userprofile/blob/main/dist/index.html",
@@ -35,7 +35,7 @@ const projects = [
       "REST API",
       "JSON",
     ],
-    image: "/assets/penelope.jpg",
+    image: "./assets/penelope.jpg",
     link: "https://github.com/discountratio/rabbit-website",
     preview:
       "https://rabbitsforsale.netlify.app/",
@@ -148,7 +148,6 @@ function renderSkills() {
             `;
 
     skillsList.appendChild(skillItem);
-    console.log(skillItem);
   });
 }
 
