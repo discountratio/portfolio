@@ -13,89 +13,90 @@
   </head>
 
   <body>
-    <div id="page">
-      <!-- Header and Navbar -->
-      <header id="header">
-        <div class="logo"><em> Kev. </em></div>
-        <nav id="nav">
-          <li class="navlink">
-            <a href="#about">
-              <span class="navlink-number">01.</span>
-              <span class="navlink-word">About</span>
-            </a>
-          </li>
+    <!-- Header and Navbar -->
+    <header id="header">
+      <div class="logo"><em> Kev. </em></div>
+      <nav id="nav">
+        <li class="navlink">
+          <a href="#about">
+            <span class="navlink-number">01.</span>
+            <span class="navlink-word">About</span>
+          </a>
+        </li>
 
-          <li class="navlink">
-            <a href="#work">
-              <span class="navlink-number">02.</span>
-              <span class="navlink-word">Projects</span>
-            </a>
-          </li>
+        <li class="navlink">
+          <a href="#work">
+            <span class="navlink-number">02.</span>
+            <span class="navlink-word">Projects</span>
+          </a>
+        </li>
 
-          <li class="navlink">
-            <a href="#projects">
-              <span class="navlink-number">03.</span>
-              <span class="navlink-word">Resume</span>
-            </a>
-          </li>
+        <li class="navlink">
+          <a href="#projects">
+            <span class="navlink-number">03.</span>
+            <span class="navlink-word">Resume</span>
+          </a>
+        </li>
 
-          <li class="navlink">
-            <a href="#contact">
-              <span class="navlink-number">04.</span>
-              <span class="navlink-word">Contact</span>
-            </a>
-          </li>
+        <li class="navlink">
+          <a href="#contact">
+            <span class="navlink-number">04.</span>
+            <span class="navlink-word">Contact</span>
+          </a>
+        </li>
 
-          <div class="resume-container like-a-button-container">
-            <a href="" class="resume-link">Resume</a>
-          </div>
-        </nav>
-        <!-- <button id="nav-toggle">MenuToggle</button> -->
-      </header>
-
-      <!-- Constant overlays -->
-      <div class="left-container side-container">
-        <ul class="social-links">
-          <li>
-            <a href="">
-              <i class="fab fa-linkedin social-icon"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="">
-              <i class="fab fa-github social-icon"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="">
-              <i class="fab fa-instagram social-icon"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="">
-              <i class="fab fa-twitter social-icon"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="">
-              <i class="fab fa-codepen social-icon"></i>
-            </a>
-          </li>
-        </ul>
-        <div class="spacing-bar"></div>
-      </div>
-
-      <div class="right-container side-container">
-        <div class="email-link">
-          <a mailto="discountRatio@gmail.com">discountRatio@gmail.com</a>
+        <div class="resume-container like-a-button-container">
+          <a href="" class="resume-link">Resume</a>
         </div>
-        <div class="spacing-bar"></div>
-      </div>
+      </nav>
+      <!-- <button id="nav-toggle">MenuToggle</button> -->
+    </header>
+    <!-- Constant overlays -->
+    <div id="left-container" class="left-container side-container">
+      <ul class="social-links">
+        <li>
+          <a href="">
+            <i class="fab fa-linkedin social-icon"></i>
+          </a>
+        </li>
 
+        <li>
+          <a href="">
+            <i class="fab fa-github social-icon"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="">
+            <i class="fab fa-instagram social-icon"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="">
+            <i class="fab fa-twitter social-icon"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="">
+            <i class="fab fa-codepen social-icon"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="spacing-bar"></div>
+    </div>
+
+    <!-- on small screens moves to left -->
+    <div id="right-container" class="right-container side-container">
+      <div class="email-link">
+        <a mailto="discountRatio@gmail.com">discountRatio@gmail.com</a>
+      </div>
+      <div class="spacing-bar"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="page">
       <div id="page-content">
         <!-- hero Section -->
         <section id="hero">
@@ -108,7 +109,8 @@
             </div>
           </div>
           <button class="hero-button like-a-button-container">
-            View my work <i class="fa-solid fa-arrow-down-long"></i>
+            <span> View my work</span>
+            <i class="fa-solid fa-arrow-down-long"></i>
           </button>
         </section>
 
@@ -118,96 +120,65 @@
             <span class="header-number">01.</span> about me
           </h2>
           <div class="section-content">
-            <div class="section-text-block">
-              <p>
-                You can call me Kev!
-                <br />
-                My background in the service industry, experience creating
-                user-friendly systems as an administrative professional, and
-                personal interest in computers and coding have paved my way to
-                web development.
-                <br />
-                I naturally gravitated toward the front end when I started
-                studying computer science - I love the combination of
-                creativity, logic, and technology and the never-ending stream of
-                new things to discover and new skills to learn.
-              </p>
-            </div>
+            <div>
+              <div class="section-text-block">
+                <p>
+                  You can call me Kev!
+                  <br />
+                  My background in the service industry, experience creating
+                  user-friendly systems as an administrative professional, and
+                  personal interest in computers and coding have paved my way to
+                  web development.
+                  <br />
+                  I naturally gravitated toward the front end when I started
+                  studying computer science - I love the combination of
+                  creativity, logic, and technology and the never-ending stream
+                  of new things to discover and new skills to learn.
+                </p>
+              </div>
 
-            <div class="section-content">
               <ul class="section-list" id="skills-list"></ul>
             </div>
+
             <div class="section-image-container">
               <img class="section-image" src="./assets/temp.jpg" alt="" />
             </div>
           </div>
-
-          
         </section>
 
         <!--------------------------- SECTION TEMPLATE ----------------------------->
-        <section id="work">
-          <h2 class="section-header">02. work</h2>
-
-          <div class="section-content">
-            <div class="seaction-text-image">
-              <h1>Work History</h1>
-              <h3>How do you measure a life?</h3>
-            </div>
-
-            <div class="section-text-image">
-              <p>
-                Years of working in restaurants has honed me into a finely tuned
-                machine, while simultaneously making me a terrible person. I
-                have a passion for learning and I am always looking for new ways
-                to improve myself.
-              </p>
-              <div class="section-image-container">
-                <!-- <img class="section-image" src="./assets/cocktail.jpg" alt="" /> -->
-              </div>
-            </div>
-
-            <div class="section-text-image">
-              <p>
-                I began pursuing my Bachelor degree shortly after COVID-19 gave
-                me the opportunity to try new things. I am new in the field of
-                web development, but I am always looking for new opportunities
-                to learn and grow. I am currently working on a few projects and
-                I am always looking for new opportunities.
-              </p>
-
-              <div class="section-image-container">
-                <!-- <img class="section-image" src="./assets/kegs.jpg" alt="" /> -->
-              </div>
-            </div>
-
-            <div class="section-text-image">
-              <p>
-                I am a self-taught developer who is always looking to learn
-                more. I am currently working on a few projects and I am always
-                looking for new opportunities. My experience in restaurant
-                managment lead to my love of spreadsheets, and started my
-                journey into the world of computer science.
-              </p>
-              <div class="section-image-container">
-                <!-- <img class="section-image" src="./assets/fish.jpg" alt="" /> -->
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section id="projects">
-          <h2 class="section-header">03. projects</h2>
+          <h2 class="section-header">02. Projects</h2>
           <div class="section-content">
             <div class="project-container">
-              <!-- projects rendered in script -->
+          
+              
+            
+
+              <div class="project-information">
+                <h3 class="project-title">User Page for Language Network</h3>
+                <div class="project-text-block">
+                  <p>
+                    Fully responsive landing page for a user profile on a language learning website that fetches country data from a REST API for basic stats and language information. Features dynamically created elements from a JSON file and uses custom components.
+                  </p>
+                </div>
+                  <ul class="project-library-list">
+                    <li class="project-list-item">HTML</li>
+                    <li class="project-list-item">CSS</li>
+                    <li class="project-list-item">JavaScript</li>
+                  </ul>
+
+                <div class="project-links">
+                  <a href="" class="project-link"><i class="fab fa-github-square"></i></a>
+                  <a href="" class="project-link"><i class="fas fa-window-restore"></i></a>
+                </div>
+              </div>
+
+              <div class="project-image-container">
+                <img class="project-image" src="./assets/chicken.bmp" alt="" />
+              </div>
             </div>
           </div>
-        </section>
-
-        <section id="contact">
-          <h2 class="section-header">04. contact</h2>
-          <div class="section-content"></div>
         </section>
       </div>
     </div>

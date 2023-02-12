@@ -7,7 +7,6 @@ body {
 
 html {
   scroll-behavior: smooth;
-  scroll-margin-top: 100px;
 }
 
 .logo {
@@ -24,10 +23,16 @@ a {
 
 section {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  scroll-margin-top: 80px;
+}
+@media (min-width: 768px) {
+  section .section-content {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 * {
@@ -42,7 +47,6 @@ section {
   width: 100%;
   white-space: nowrap;
   align-items: center;
-  justify-content: center;
   gap: 3vw;
   font-family: "Open sans", sans-serif;
   font-weight: 400;
@@ -67,7 +71,7 @@ section {
 .section-text-block {
   color: #ffffff;
   font-size: clamp(1em, 1em + 0.25vw, 1.5vw);
-  margin: 1rem 0;
+  margin: 2rem;
 }
 .section-text-block br {
   margin-bottom: 1rem;
@@ -75,9 +79,11 @@ section {
 
 .section-image-container {
   margin: auto;
-  width: clamp(200px, 50vw, 400px);
+  width: clamp(200px, 50vw, 800px);
   border: 2px solid #eec14e;
   position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .section-image-container .section-image {
   width: 100%;
@@ -87,59 +93,47 @@ section {
   left: -0.5rem;
 }
 
-#page {
-  width: 100vw;
-  max-width: 100%;
-  background-color: #333;
-  display: flex;
-  flex-direction: column;
-}
-#page .side-container {
+.side-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   z-index: 99;
+  width: clamp(40px, 5vw, 80px);
   font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
 }
-#page .left-container {
+
+#left-container {
   position: fixed;
   bottom: 0;
   left: 0;
   padding: 0 clamp(24px, 2vw, 48px);
   line-height: clamp(24px, 2vw, 48px);
 }
-#page .left-container .social-links {
+#left-container .social-links {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#page .left-container .social-icon {
+#left-container .social-icon {
   color: #eec14e;
   padding: 0.5rem 0;
   font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
 }
-#page .left-container .social-icon:hover {
+#left-container .social-icon:hover {
   animation: bounce 2s infinite;
   scale: 1.2;
 }
-#page .left-container .spacing-bar {
-  align-self: center;
-  justify-content: center;
-  margin: auto;
-  height: 10vh;
-  width: 2px;
-  background-color: #eec14e;
-}
-#page .right-container {
+
+#right-container {
   position: fixed;
   bottom: 0;
   right: 0;
   padding: 0 clamp(24px, 2vw, 48px);
   line-height: clamp(24px, 2vw, 48px);
 }
-#page .right-container .email-link {
+#right-container .email-link {
   color: #eec14e;
   padding: 0.5rem 0;
   writing-mode: vertical-lr;
@@ -147,24 +141,25 @@ section {
   letter-spacing: 1px;
   transition: letter-spacing 200ms;
 }
-#page .right-container .email-link:hover {
+#right-container .email-link:hover {
   letter-spacing: 2px;
   transform: trnaslateY(-8px);
   color: #eec14e;
 }
 @media screen and (max-width: 1200px) {
-  #page .right-container {
+  #right-container {
     bottom: auto;
     right: auto;
     top: 0;
     left: 0;
     rotate: 180deg;
   }
-  #page .right-container .spacing-bar {
+  #right-container .spacing-bar {
     background-color: transparent;
   }
 }
-#page .spacing-bar {
+
+.spacing-bar {
   align-self: center;
   justify-content: center;
   margin: auto;
@@ -173,22 +168,11 @@ section {
   background-color: #eec14e;
 }
 
-#nav {
+#page {
+  width: clamp(340px, 100%, 1000px);
+  background-color: #333;
   display: flex;
-  align-items: center;
-  justify-content: right;
-  gap: 2rem;
-  font-size: clamp(1em, 1em + 0.25vw, 1.5vw);
-}
-#nav .navlink .navlink-number {
-  color: #eec14e;
-}
-#nav .navlink .navlink-word {
-  color: #ffffff;
-  transition: color 200ms;
-}
-#nav .navlink:hover .navlink-word {
-  color: #eec14e;
+  flex-direction: column;
 }
 
 #header {
@@ -208,6 +192,24 @@ section {
 #header .logo {
   color: #eec14e;
   font-size: clamp(1.75em, 2em + 1.5vw, 5vw);
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 2rem;
+  font-size: clamp(1em, 1em + 0.25vw, 1.5vw);
+}
+#nav .navlink .navlink-number {
+  color: #eec14e;
+}
+#nav .navlink .navlink-word {
+  color: #ffffff;
+  transition: color 200ms;
+}
+#nav .navlink:hover .navlink-word {
+  color: #eec14e;
 }
 
 .like-a-button-container {
@@ -231,7 +233,6 @@ section {
   font-size: clamp(1.75em, 2em + 1.5vw, 5vw);
   font-family: "Open sans", sans-serif;
   font-weight: 800;
-  margin-top: 30%;
 }
 #hero .hero-intro-text span {
   font-family: inherit;
@@ -239,8 +240,106 @@ section {
   color: #eec14e;
 }
 #hero .hero-button {
-  margin-top: 20%;
+  font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
+  margin-top: 20vh;
+  white-space: nowrap;
+  padding: 0.5rem 10vw;
+  letter-spacing: 1.5px;
+  font-weight: 800;
 }
 #hero .section-content {
-  margin-top: clamp(100px, 20%, 20vh);
+  margin-top: 20vh;
+}
+#about #skills-list {
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: center;
+  display: flex;
+  padding: 0 5vw;
+}
+#about #skills-list .list-item .skill-list-title {
+  color: #ffffff;
+  font-size: clamp(1em, 1em + 0.25vw, 1.5vw);
+}
+#about #skills-list .list-item .list-icon {
+  width: 1rem;
+  height: auto;
+  color: #eec14e;
+}
+#about .section-image-container {
+  margin: 5vh auto;
+}
+
+#projects .project-container .project-title {
+  color: #ffffff;
+  font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
+  text-align: right;
+}
+#projects .project-container .project-image-container {
+  width: 400px;
+  aspect-ratio: 10/8;
+  border: 2px solid #eec14e;
+  position: relative;
+  margin: 2rem;
+}
+#projects .project-container .project-image-container .project-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: top;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+}
+#projects .project-container .project-information {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 10vh 0;
+}
+#projects .project-container .project-text-block {
+  background: #555;
+  padding: 1rem;
+  color: #ffffff;
+  box-shadow: 4px 4px 10px 0px #222;
+  font-size: clamp(1em, 1em + 0.25vw, 1.5vw);
+}
+#projects .project-container .project-library-list {
+  display: flex;
+  flex-direction: row;
+  color: #eec14e;
+  justify-content: flex-end;
+  font-family: "Roboto Mono", monospace;
+}
+#projects .project-container .project-library-list .project-list-item {
+  font-size: clamp(1em, 1em + 0.25vw, 1.5vw);
+  color: #eec14e;
+}
+#projects .project-container .project-library-list .project-list-item:hover {
+  color: #ffffff;
+}
+#projects .project-container .project-library-list .project-list-item ~ .project-list-item {
+  margin-left: 1rem;
+}
+#projects .project-container .project-library-list .project-list-item ~ .project-list-item::before {
+  content: "/";
+  margin-right: 1rem;
+}
+#projects .project-container .project-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+#projects .project-container .project-links .project-link {
+  color: #ffffff;
+  font-size: clamp(1.75em, 2em + 1.5vw, 5vw);
+  transition: color 200ms;
+}
+#projects .project-container .project-links .project-link:hover {
+  color: #eec14e;
+}
+#projects .project-container .project-links .project-link:hover {
+  color: #ffffff;
 }/*# sourceMappingURL=sharedstyles.css.map */

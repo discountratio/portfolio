@@ -8,6 +8,8 @@
 //   border: 1px solid pink;
 // }
 
+$header-height: 80px;
+
 $deep-red: #d89f9f;
 $light-red: #ffdddd;
 $dark-red: #772222;
@@ -44,7 +46,6 @@ body {
 }
 html {
   scroll-behavior: smooth;
-  scroll-margin-top: 100px;;
 }
 @mixin flex-row {
   display: flex;
@@ -90,9 +91,16 @@ a {
 
 section {
   min-height: 100vh;
+  width: 100%;
   @include flex-column;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+
+  scroll-margin-top: $header-height;
+  @media (min-width: 768px) {
+    .section-content {
+      @include flex-row;
+    }
+  }
 }
 * {
   margin: 0;
@@ -107,7 +115,6 @@ section {
   width: 100%;
   white-space: nowrap;
   align-items: center;
-  justify-content: center;
   gap: 3vw;
   font-family: $sans;
   font-weight: 400;
@@ -130,131 +137,139 @@ section {
   }
 }
 
-.section-text-block{
+.section-text-block {
   color: $text-color-light;
   @include text-small;
-  margin: 1rem 0;
-  br{
+  margin: 2rem;
+  br {
     margin-bottom: 1rem;
   }
 }
 
-.section-image-container{
+.section-image-container {
   margin: auto;
-  width: clamp(200px, 50vw, 400px);
+  width: clamp(200px, 50vw, 800px);
   border: 2px solid $text-highlight-1;
   position: relative;
-  .section-image{
+  object-fit: cover;
+  .section-image {
     width: 100%;
     height: 100%;
     position: relative;
     top: -0.5rem;
     left: -0.5rem;
   }
-
-
 }
 
-
-.section-content{
-
+.section-content {
 }
+
+.side-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 99;
+  width: clamp(40px, 5vw, 80px);
+  @include text-medium;
+}
+
+#left-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0 clamp(24px, 2vw, 48px);
+  line-height: clamp(24px, 2vw, 48px);
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-icon {
+    color: $text-highlight-1;
+    padding: 0.5rem 0;
+    @include text-medium;
+    &:hover {
+      animation: bounce 2s infinite;
+
+      scale: 1.2;
+    }
+  }
+}
+
+#right-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 0 clamp(24px, 2vw, 48px);
+  line-height: clamp(24px, 2vw, 48px);
+
+  .email-link {
+    color: $text-highlight-1;
+    padding: 0.5rem 0;
+    writing-mode: vertical-lr;
+    font-family: $monospace;
+    letter-spacing: 1px;
+    transition: letter-spacing 200ms;
+
+    &:hover {
+      letter-spacing: 2px;
+      transform: trnaslateY(-8px);
+      color: $text-highlight-1;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    bottom: auto;
+    right: auto;
+    top: 0;
+    left: 0;
+    rotate: 180deg;
+    .spacing-bar {
+      background-color: transparent;
+    }
+  }
+}
+
+.spacing-bar {
+  align-self: center;
+  justify-content: center;
+  margin: auto;
+  height: 10vh;
+  width: 2px;
+  background-color: $text-highlight-1;
+}
+
 #page {
-  width: 100vw;
-  max-width: 100%;
+  width: clamp(340px, 100%, 1000px);
   background-color: $background;
   display: flex;
   flex-direction: column;
-
-  .side-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 99;
-    @include text-medium;
-  }
-
-  .left-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 0 clamp(24px, 2vw, 48px);
-    line-height: clamp(24px, 2vw, 48px);
-
-    .social-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .social-icon {
-      color: $text-highlight-1;
-      padding: 0.5rem 0;
-      @include text-medium;
-      &:hover {
-        animation: bounce 2s infinite;
-
-        scale: 1.2;
-      }
-    }
-
-    .spacing-bar {
-      align-self: center;
-      justify-content: center;
-      margin: auto;
-      height: 10vh;
-      width: 2px;
-      background-color: $text-highlight-1;
-    }
-  }
-
-  .right-container {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    padding: 0 clamp(24px, 2vw, 48px);
-    line-height: clamp(24px, 2vw, 48px);
-
-    .email-link {
-      color: $text-highlight-1;
-      padding: 0.5rem 0;
-      writing-mode: vertical-lr;
-      font-family: $monospace;
-      letter-spacing: 1px;
-      transition: letter-spacing 200ms;
-
-      &:hover {
-        letter-spacing: 2px;
-        transform: trnaslateY(-8px);
-        color: $text-highlight-1;
-      }
-    }
-
-    @media screen and (max-width: 1200px) {
-      bottom: auto;
-      right: auto;
-      top: 0;
-      left: 0;
-      rotate: 180deg;
-      .spacing-bar {
-        background-color: transparent;
-      }
-    }
-  }
-
-  .spacing-bar {
-    align-self: center;
-    justify-content: center;
-    margin: auto;
-    height: 10vh;
-    width: 2px;
-    background-color: $text-highlight-1;
-  }
-
-  // end out layer
 }
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 100;
+  // background: #00000050;
+  background: $header-background;
+  box-shadow: 0 0 10px 0px black;
+  .logo {
+    color: $text-highlight-1;
+    @include text-large;
+  }
+}
+
 #nav {
   display: flex;
   align-items: center;
@@ -278,26 +293,6 @@ section {
     }
   }
 }
-
-#header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem;
-  z-index: 100;
-  // background: #00000050;
-  background: $header-background;
-  box-shadow: 0 0 10px 0px black;
-  .logo {
-    color: $text-highlight-1;
-    @include text-large;
-  }
-}
 .like-a-button-container {
   border: 1px solid $highlight;
   padding: 0.5rem 1rem;
@@ -313,13 +308,11 @@ section {
 
 #hero {
   @include flex-column;
-
   .hero-intro-text {
     color: white;
     @include text-large;
     font-family: $sans;
     font-weight: 800;
-    margin-top: 30%;
 
     span {
       font-family: inherit;
@@ -329,12 +322,125 @@ section {
   }
 
   .hero-button {
-    margin-top: 20%;
+    @include text-medium;
+    margin-top: 20vh;
+    white-space: nowrap;
+    padding: 0.5rem 10vw;
+    letter-spacing: 1.5px;
+    font-weight: 800;
   }
 
   .section-content {
-    margin-top: clamp(100px, 20%, 20vh);
+    margin-top: 20vh;
   }
   .section-text-block {
+  }
+}
+
+#about {
+  .section-header {
+  }
+  .section-content {
+  }
+
+  #skills-list {
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    justify-content: center;
+    display: flex;
+    padding: 0 5vw;
+    .list-item {
+      .skill-list-title {
+        color: $text-color-light;
+        @include text-small;
+      }
+      .list-icon {
+        width: 1rem;
+        height: auto;
+        color: $text-highlight-1;
+      }
+    }
+  }
+  .section-image-container {
+    margin: 5vh auto;
+  }
+}
+
+#projects {
+  .project-container {
+    .project-title {
+      color: $text-color-light;
+      @include text-medium;
+      text-align: right;
+    }
+
+    .project-image-container {
+      width: 400px;
+      aspect-ratio: 10/8;
+      border: 2px solid $text-highlight-1;
+      position: relative;
+      margin: 2rem;
+      .project-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        vertical-align: top;
+        position: absolute;
+        top: -8px;
+        left: -8px;
+      }
+    }
+
+    .project-information {
+      @include flex-column;
+      gap: 1rem;
+      margin: 10vh 0;
+    }
+
+    .project-text-block {
+      background: #555;
+      padding: 1rem;
+      color: $text-color-light;
+      box-shadow: 4px 4px 10px 0px #222;
+      @include text-small;
+    }
+
+    .project-library-list {
+      @include flex-row;
+      color: $text-highlight-1;
+      justify-content: flex-end;
+      font-family: $monospace;
+      .project-list-item {
+        @include text-small;
+        color: $text-highlight-1;
+        &:hover {
+          color: $text-color-light;
+        }
+        ~ .project-list-item {
+          margin-left: 1rem;
+          &::before {
+            content: "/";
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+
+    .project-links {
+      @include flex-row;
+      justify-content: flex-end;
+      gap: 1rem;
+      .project-link {
+        color: $text-color-light;
+        &:hover {
+          color: $text-highlight-1;
+        }
+        @include text-large;
+        transition: color 200ms;
+        &:hover {
+          color: $text-color-light;
+        }
+      }
+    }
   }
 }
