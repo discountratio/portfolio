@@ -38,7 +38,7 @@
           </a>
         </li>
 
-        <div class="resume-container like-a-button-container">
+        <div class="resume-container click-me-container">
           <a href="" class="resume-link">Resume</a>
         </div>
       </nav>
@@ -58,93 +58,80 @@
             <i class="fab fa-github social-icon"></i>
           </a>
         </li>
-
-        <li>
-          <a href="">
-            <i class="fab fa-instagram social-icon"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="">
-            <i class="fab fa-twitter social-icon"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="">
-            <i class="fab fa-codepen social-icon"></i>
-          </a>
-        </li>
       </ul>
       <div class="spacing-bar"></div>
     </div>
 
     <!-- on small screens moves to left -->
     <div id="right-container" class="right-container side-container">
-      <div class="email-link">
-        <a mailto="discountRatio@gmail.com">discountRatio@gmail.com</a>
+      <div class="email-link-container">
+        <a class="email-link" mailto="discountRatio@gmail.com"
+          >discountratio@gmail.com</a
+        >
       </div>
       <div class="spacing-bar"></div>
     </div>
 
     <!-- Main Content -->
     <div id="page">
-      <div id="page-content">
-        <!-- hero Section -->
-        <section id="hero">
-          <div class="section-content">
-            <div class="section-text-block">
-              <p class="hero-intro-text">
-                Hello, my name is <span>Kevin Riley.</span> I'm a front-end web
-                developer.
-              </p>
-            </div>
+      <!-- hero Section -->
+      <section id="hero">
+        <div class="section-content">
+          <div class="section-text-block">
+            <p class="hero-intro-text">
+              Hello, my name is
+              <span class="hero-name">Kevin Riley</span>.<br />
+              I'm a front-end web developer.
+            </p>
           </div>
-          <button class="hero-button like-a-button-container">
-            <span> View my work</span>
-            <i class="fa-solid fa-arrow-down-long"></i>
-          </button>
-        </section>
+        </div>
+        <button class="hero-button click-me-container">
+          <span> <a href="#projects"> View my work </a></span>
+          <i class="fa-solid fa-arrow-down-long"></i>
+        </button>
+      </section>
 
-        <!-- ---------------------------------------------------------------------- -->
-        <section id="about">
-          <h2 class="section-header">
-            <span class="header-number">01.</span> about me
-          </h2>
-          <div class="section-content">
-            <div>
-              <div class="section-text-block">
-                <p>
-                  You can call me Kev!
-                  <br />
-                  My background in the service industry, experience creating
-                  user-friendly systems as an administrative professional, and
-                  personal interest in computers and coding have paved my way to
-                  web development.
-                  <br />
-                  I naturally gravitated toward the front end when I started
-                  studying computer science - I love the combination of
-                  creativity, logic, and technology and the never-ending stream
-                  of new things to discover and new skills to learn.
-                </p>
-              </div>
+      <!-- ---------------------------------------------------------------------- -->
+      <section id="about">
+        <h2 class="section-header">
+          <span class="header-number">01.</span> about me
+        </h2>
 
-              <ul class="section-list" id="skills-list"></ul>
-            </div>
-
-            <div class="section-image-container">
-              <img class="section-image" src="./assets/temp.jpg" alt="" />
-            </div>
+        <div class="section-content">
+          <div class="about-image-container">
+            <img class="about-image" src="./assets/temp.jpg" alt="" />
           </div>
-        </section>
+        </div>
 
-        <!--------------------------- SECTION TEMPLATE ----------------------------->
-        <section id="projects">
-          <h2 class="section-header">02. Projects</h2>
-          <div class="section-content" id="projects-container"></div>
-        </section>
-      </div>
+        <div class="section-content">
+          <div class="section-text-block">
+            <p>
+              You can call me Kev!
+              <br />
+              My background in the service industry, experience creating
+              user-friendly systems as an administrative professional, and
+              personal interest in computers and coding have paved my way to web
+              development.
+              <br />
+              I naturally gravitated toward the front end when I started
+              studying computer science - I love the combination of creativity,
+              logic, and technology and the never-ending stream of new things to
+              discover and new skills to learn.
+            </p>
+
+            <ul class="section-list" id="skills-list">
+              <!-- HTML generated in script.js -->
+              <!-- #skills-list, .skill-list-item, .skill-list-title, .skill-list-icon -->
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!--------------------------- SECTION TEMPLATE ----------------------------->
+      <section id="projects">
+        <h2 class="section-header">02. Projects</h2>
+        <div class="section-content" id="projects-container"></div>
+      </section>
     </div>
   </body>
 </html>
