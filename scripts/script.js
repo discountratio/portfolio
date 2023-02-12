@@ -2,48 +2,44 @@ import projects from "./projects.js";
 
 import skills from "./skills.js";
 
-const projectsContainer = document.querySelector(".project-container");
 const skillsList = document.querySelector("#skills-list");
 
 const renderProjects = () => {
+const projectsContainer = document.querySelector("#projects-container");
+
   projects.forEach((project) => {
-    const { id, title, bigIcon, description, icons, link, preview } = project;
-    const projectCard = document.createElement("div");
-    projectCard.classList.add("project-card");
+    const projectContainer = document.createElement("div");
+    projectContainer.classList.add("project-container");
+    projectContainer.innerHTML = 
+    `
+    <div class="project-image-container">
+    <img class="project-image" src=${project.image} alt="screenshot of ${project.name}" />
+  </div>
+    <div class="project-information">
 
-    projectCard.innerHTML = `
-        <div class="project-card-top">
-        <div class="project-icon">
-            <i class=" ${bigIcon} "></i>
-        </div>
     
-        <div class="project-links">
-            <a href="${link}" class="project-link" target="_blank">
-            <i class="fab fa-git"></i>
-            </a>
-    
-            <a href="${preview}" class="project-link" target="_blank">
-            <i class="fas fa-external-link-alt"></i>
-            </a>
-        </div>
-        </div>
-    
-        <h3 class="project-title">${title}</h3>
-    
-        <p class="project-description">
-        ${description}
+
+      <h3 class="project-title">${project.title}</h3>
+      <div class="project-text-block">
+        <p>
+          ${project.description}
         </p>
-    
-        <div class="project-icons">
-        ${icons
-          .map((icon) => {
-            return `<i class="project-icon ${icon}"></i>`;
-          })
-          .join("")}
-        </div>
-        `;
+      </div>
+      <div class="project-bottom">
+        <ul class="project-library-list">
+          ${project.tech.map((tech) => `<li class="project-list-item">${tech}</li>`).join("")}
+        </ul>
 
-    projectsContainer.appendChild(projectCard);
+        <div class="project-links">
+          <a href="${project.link}" class="project-link"><i class="fab fa-github"></i></a>
+          <a href="${project.preview}" class="project-link"><i class="fas fa-window-restore"></i></a>
+        </div>
+        
+      </div>
+    </div>
+  
+    `
+    projectsContainer.appendChild(projectContainer);
   });
 };
 

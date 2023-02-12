@@ -52,6 +52,7 @@ section {
   font-weight: 400;
   text-transform: capitalize;
   color: #ffffff;
+  font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
 }
 .section-header .header-number {
   color: #eec14e;
@@ -64,7 +65,7 @@ section {
   width: clamp(0%, 100%, 30vw);
   height: 2px;
   flex-shrink: 1;
-  background-color: #ffffff;
+  background-color: #eec14e;
   margin: 1rem 0;
 }
 
@@ -169,10 +170,11 @@ section {
 }
 
 #page {
-  width: clamp(340px, 100%, 1000px);
+  width: clamp(340px, 100%, 1200px);
   background-color: #333;
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 
 #header {
@@ -270,17 +272,39 @@ section {
   margin: 5vh auto;
 }
 
+#projects #projects-container {
+  display: flex;
+  flex-direction: column;
+}
+#projects .project-container {
+  display: flex;
+  flex-direction: column;
+  margin: 5vh auto;
+  justify-content: space-between;
+}
+#projects .project-container::after:not(:last-child) {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #eec14e;
+  margin-top: 10vh;
+}
 #projects .project-container .project-title {
   color: #ffffff;
   font-size: clamp(1.25em, 1.5em + 1.5vw, 2vw);
   text-align: right;
 }
 #projects .project-container .project-image-container {
-  width: 400px;
+  width: clamp(400px, 100%, 800px);
   aspect-ratio: 10/8;
   border: 2px solid #eec14e;
   position: relative;
-  margin: 2rem;
+  top: 4px;
+  left: 4px;
+  margin: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #projects .project-container .project-image-container .project-image {
   width: 100%;
@@ -291,6 +315,13 @@ section {
   position: absolute;
   top: -8px;
   left: -8px;
+  -o-object-position: 0 0;
+     object-position: 0 0;
+  filter: grayscale(0.6);
+  transition: filter 300ms;
+}
+#projects .project-container .project-image-container .project-image:hover {
+  filter: grayscale(0);
 }
 #projects .project-container .project-information {
   display: flex;
@@ -311,6 +342,9 @@ section {
   color: #eec14e;
   justify-content: flex-end;
   font-family: "Roboto Mono", monospace;
+  flex-wrap: wrap;
+  width: 80%;
+  align-self: flex-end;
 }
 #projects .project-container .project-library-list .project-list-item {
   font-size: clamp(1em, 1em + 0.25vw, 1.5vw);
@@ -342,4 +376,40 @@ section {
 }
 #projects .project-container .project-links .project-link:hover {
   color: #ffffff;
+}
+#projects .project-container .project-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  vertical-align: top;
+  height: 60px;
+  line-height: 30px;
+}
+@media screen and (min-width: 900px) {
+  #projects .project-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  #projects .project-container:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  #projects .project-container:nth-child(odd) .project-title {
+    text-align: left;
+  }
+  #projects .project-container .project-image-container {
+    width: 100%;
+  }
+  #projects .project-container .project-image-container .project-image {
+    transition: object-position 400ms, scale 200ms, width 200ms, height 200ms;
+    transition: object-position 400ms, scale 200ms, width 200ms, height 200ms, -o-object-position 400ms;
+  }
+  #projects .project-container .project-image-container .project-image:hover {
+    width: 30vw;
+  }
+  #projects .project-container .project-image-container .project-image:active {
+    -o-object-position: 0 100%;
+       object-position: 0 100%;
+  }
 }/*# sourceMappingURL=sharedstyles.css.map */
