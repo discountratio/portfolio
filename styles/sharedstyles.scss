@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px solid pink;
+  // border: 1px solid pink;
 }
 
 $deep-red: #d89f9f;
@@ -46,12 +46,14 @@ $sidebar-width: clamp(40px, 5vw, 120px);
 $inner-width: clamp(320px, 40vw, 1200px);
 
 body {
-  max-width: 100;
-  min-width: 460px;
+  max-width: 100%;
+  min-width: 360px;
+  overflow-x: hidden;
   background-color: $background;
 }
 html {
   scroll-behavior: smooth;
+  scroll-snap-align: start;
 }
 @mixin flex-row {
   display: flex;
@@ -133,14 +135,15 @@ a {
   }
 
   @media screen and (max-width: 900px) {
-    bottom: auto;
-    right: auto;
-    top: 0;
-    left: 0;
-    rotate: 180deg;
-    .spacing-bar {
-      background-color: transparent;
-    }
+    display: none;
+    // bottom: auto;
+    // right: auto;
+    // top: 0;
+    // left: 0;
+    // rotate: 180deg;
+    // .spacing-bar {
+    //   background-color: transparent;
+    // }
   }
 }
 
@@ -157,7 +160,7 @@ a {
   width: 100vw;
   position: fixed;
   top: 0;
-  padding: 0 0.5rem;
+  padding: 0 clamp(1rem, 2vw, 2rem);
   height: $header-height;
   font-family: $monospace;
   display: flex;
@@ -174,16 +177,37 @@ a {
   .resume-link {
     font-family: $sans;
   }
+  @media screen and (max-width: 900px) {
+    .logo {
+      display: none;
+    }
+  }
 }
 
 #nav {
   @include text-small;
   @include flex-row;
-  gap: 2vw;
   height: 100%;
   font-family: $monospace;
+  .nav-menu-icon {
+    color: white;
+    font-size: clamp(24px, 4vw, 36px);
+    padding: 1vw;
+    display: none;
+  }
 
+  .navlinks-container {
+    @include flex-row();
+    width: 100%;
+    gap: 5vw;
+  }
+
+
+  .email-link {
+    display: none;
+  }
   .navlink {
+    white-space: nowrap;
     .navlink-number {
       color: $text-highlight-1;
       font-family: $monospace;
@@ -201,12 +225,139 @@ a {
   }
 }
 
+@media screen and (max-width: 900px) {
+  #nav {
+    @include flex-column;
+    @include text-medium;
+    position: fixed;
+    align-items: flex-end;
+    padding: 0.5rem;
+    top: 0;
+    right: 0;
+    gap: 2vw;
+    width: clamp(48px, 8vw, 64px);
+    background: #666;
+    height: 100vh;
+    font-family: $monospace;
+    transition: width 500ms, background-color 200ms 200ms;
+
+    .navlinks-container {
+      @include flex-column();
+      width: 100%;
+      margin-top: 10vh;
+      gap: 2vh;
+    }
+    .logo{
+      display: none;
+      width: 100%;
+      position :absolute;
+      top: 0.255rem;
+      left: 0.5rem;
+      opacity: 0;
+      transition: opacity 200ms 100ms;
+
+    }
+    .nav-menu-icon {
+      display: block;
+      transition: rotate 200ms;
+    }
+
+    .navlink {
+      opacity: 0;
+      width: 0%;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      transition: width 500ms, opacity 0ms;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: $text-highlight-1;
+        transition: width 200ms;
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    .resume-container, .email-link {
+      opacity: 0;
+      // opacity: 1;
+      width: fit-content;
+      transition: opacity 500ms 50ms;
+    }
+
+    .email-link {
+      @include text-small;
+      display: block;
+      // justify-self: bottom;
+      // align-self: bottom;
+      text-align: center;
+      position: absolute;
+      bottom: 5vh;
+      height: auto;
+      width: 0%;
+      padding: 0;
+      color: $text-highlight-1;
+      transition :all 300ms;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      width: 90vw;
+      height: 100vh;
+    background: #666;
+
+      .logo{
+        display: block;
+        opacity: 1;
+      }
+      .nav-menu-icon {
+        rotate: 90deg;
+      }
+
+      .navlink {
+        width: 70%;
+        // max-width: 300px;
+        opacity: 1;
+      }
+      .navlink {
+        display: block;
+      }
+      .resume-container, .email-link {
+
+        display: block;
+        opacity: 1;
+      }
+
+      .email-link{
+        width: 90%;
+      }
+    
+    }
+  }
+}
+
 // **********  Outer Layer  **********
 
+/* Section default styles
+  Sections are defaulted for flex-column, center aligned, and full height,
+  for preferred moblie view. Each section has a 801px+ view at the bottom of the file.
+*/
 section {
   @include flex-column;
-  width: 100%;
-  min-height: calc(100vh - $header-height);
+  align-items: center;
+  justify-content: center;
+  // min-height: calc(100vh - $header-height);
+  min-height: 100vh;
   scroll-margin-top: $header-height;
   margin-bottom: 20vh;
 }
@@ -278,14 +429,17 @@ section {
 #hero {
   @include flex-column;
   font-family: $sans;
+  align-items: center;
+  margin: auto;
 
   .hero-intro-text {
-    @include text-large;
+    @include text-huge;
     font-family: $sans;
     color: $text-color-light;
     font-weight: 800;
-    width: $inner-width;
-
+    width: 80vw;
+    justify-content: center;
+    text-align: center;
     .hero-name {
       font-family: inherit;
       font-weight: inherit;
@@ -296,22 +450,24 @@ section {
   }
 
   .hero-button {
-    @include text-medium;
+    @include text-large;
     margin-top: 10vh;
     white-space: nowrap;
-    padding: 0.5rem 10vw;
+    padding: 0.5rem 5vw;
     letter-spacing: 1.5px;
     font-weight: 800;
+
+    // border: none;
+    border: 4px solid $text-highlight-1;
+    // border-left: 4px solid $text-highlight-1;
   }
 
   .section-content {
     margin-top: 20vh;
   }
-
 }
 
 #about {
-
   .about-image-container {
     width: clamp(320px, 30vw, 480px);
     aspect-ratio: 1/1.5;
@@ -331,16 +487,18 @@ section {
     }
   }
 
+  .section-content {
+  }
+
   #skills-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.1rem;
     margin-top: 2rem;
     width: 100%;
-    // background: red;
     .skill-list-item {
       display: flex;
-      flex-direction: row-reverse;
+      flex-direction: row;
 
       width: 100%;
       color: $text-highlight-1;
@@ -363,17 +521,34 @@ section {
 
 #projects-container {
   @include flex-column;
-  // background: red;
+  width: clamp(340px, 100%, 800px);
+  padding: clamp(20px, 3vw, 40px);
+
   .project-container {
     @include flex-column;
     width: 100%;
-    // background: purple;
-    // border: 4px solid red;
     margin-bottom: 10vh;
+    gap: 5vh;
+    position: relative;
+    // background: red;
+    // &:not(:last-child)::after {
+    //   content: "";
+    //   display: block;
+    //   width: 100%;
+    //   height: 100%;
+
+    //   border-right: 4px solid white;
+    //   border-bottom: 4px solid white;
+    //   top: 24px;
+    //   right: -24px;
+    //   position: absolute;
+    //   z-index: -1;
+    //   flex-shrink: 1;
+    // }
   }
 
   .project-image-container {
-    width: clamp(200px, 100%, 40vw);
+    width: clamp(320px, 100%, 40vw);
     margin: auto;
     aspect-ratio: 10/8;
     border: 2px solid $text-highlight-1;
@@ -384,6 +559,7 @@ section {
 
     .project-image {
       width: 100%;
+
       height: 100%;
       object-fit: cover;
       vertical-align: top;
@@ -401,6 +577,7 @@ section {
 
   .project-information-container {
     @include flex-column;
+    gap: 2rem;
   }
 
   .project-title {
@@ -410,17 +587,20 @@ section {
     font-family: $sans;
   }
 
-  .project-text-block {
+  .project-description {
     @include text-small;
     color: $text-color-light;
     font-family: $sans;
     background: #555;
     box-shadow: 4px 4px 10px 0px #222;
+    padding: 0.5rem 1rem;
   }
 
   .project-links {
     @include flex-row;
     gap: 1rem;
+    width: 100%;
+    justify-content: flex-end;
     .project-link {
       @include text-large;
       color: $text-highlight-1;
@@ -449,6 +629,44 @@ section {
           margin: 0 0.25rem;
         }
       }
+    }
+  }
+}
+
+#contact {
+  .section-header {
+  }
+  .section-content {
+  }
+  .section-text-block {
+    @include flex-column;
+    padding: 1rem;
+    h2 {
+      width: 100%;
+      margin: 1rem 0;
+      @include text-large;
+    }
+  }
+
+  .contact-form-container {
+    @include flex-column();
+    padding: 1rem;
+    @include text-small();
+    font-family: $sans;
+    label {
+      width: 100%;
+    }
+    input,
+    textarea {
+      margin: 0.5rem 0;
+      width: 100%;
+      padding: 0.5rem 0.5rem;
+      @include text-small();
+      font-family: $sans;
+      resize: vertical;
+      border: none;
+      background: #555;
+      color: $text-highlight-1;
     }
   }
 }

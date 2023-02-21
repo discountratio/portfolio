@@ -1,4 +1,3 @@
-
 const projects = [
   {
     id: 1,
@@ -28,17 +27,10 @@ const projects = [
     bigIcon: " fa-solid fa-brush",
     description:
       " Portfolio and shop for an artist with a gallery of AI-generated assets and custom JavaScript functions to create and populate the dynamic gallery. Features a shopping cart that uses local storage to store user shopping data and background moving gradient UI achieved via CSS animation.",
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "REST API",
-      "JSON",
-    ],
+    tech: ["HTML", "CSS", "JavaScript", "REST API", "JSON"],
     image: "./assets/penelope.jpg",
     link: "https://github.com/discountratio/rabbit-website",
-    preview:
-      "https://rabbitsforsale.netlify.app/",
+    preview: "https://rabbitsforsale.netlify.app/",
   },
 ];
 const skills = [
@@ -97,38 +89,45 @@ const skills = [
 const skillsList = document.querySelector("#skills-list");
 
 const renderProjects = () => {
-const projectsContainer = document.querySelector("#projects-container");
+  const projectsContainer = document.querySelector("#projects-container");
 
   projects.forEach((project) => {
     const projectContainer = document.createElement("div");
     projectContainer.classList.add("project-container");
-    projectContainer.innerHTML = 
-    `
+    projectContainer.innerHTML = `
+    <h3 class="project-title">${project.title}</h3>
+
     <div class="project-image-container">
-    <img class="project-image" src=${project.image} alt="screenshot of ${project.name}" />
+    <img class="project-image" src=${project.image} alt="screenshot of ${
+      project.name
+    }" />
   </div>
     <div class="project-information-container">
-      <h3 class="project-title">${project.title}</h3>
-        <p class="project-text-block">
+      
+        <p class="project-description">
           ${project.description} 
-
+        
         </p>
 
-      <div class="project-bottom">
         <ul class="project-library-list">
-          ${project.tech.map((tech) => `<li class="project-list-item">${tech}</li>`).join("")}
-        </ul>
-
-        <div class="project-links">
-          <a href="${project.link}" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-          <a href="${project.preview}" target="_blank"  class="project-link"><i class="fas fa-window-restore"></i></a>
-        </div>
+        ${project.tech
+          .map((tech) => `<li class="project-list-item">${tech}</li>`)
+          .join("")}
+      </ul>
+     
+      <div class="project-links">
+      <a href="${
+        project.link
+      }" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+      <a href="${
+        project.preview
+      }" target="_blank"  class="project-link"><i class="fas fa-window-restore"></i></a>
+    </div>
+      
         
-      </div>
-
     </div>
   
-    `
+    `;
     projectsContainer.appendChild(projectContainer);
   });
 };
@@ -140,14 +139,20 @@ function renderSkills() {
     skillItem.classList.add("list-item", "skill-list-item");
 
     skillItem.innerHTML = `
-                <span class='skill-list-title'> ${title} 
+                <span class='skill-list-title'> 
                 <i class='${icon} skill-list-icon'></i>
+                ${title} 
                 </span>
             `;
 
     skillsList.appendChild(skillItem);
   });
 }
+
+
+
+
+
 
 renderSkills();
 renderProjects();
