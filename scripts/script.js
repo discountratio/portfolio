@@ -5,7 +5,7 @@ const projects = [
     bigIcon: " fa-solid fa-brush",
     description:
       " Portfolio and shop for an artist with a gallery of AI-generated assets and custom JavaScript functions to create and populate the dynamic gallery. Features a shopping cart that uses local storage to store user shopping data and background moving gradient UI achieved via CSS animation.",
-    tech: ["HTML", "CSS", "JavaScript", "REST API", "JSON"],
+    tech: ["HTML", "SCSS", "JavaScript", "JSON"],
     image: "./assets/penelopeparkpreview.png",
     link: "https://github.com/discountratio/rabbit-website",
     preview: "https://penelopepark.netlify.app/",
