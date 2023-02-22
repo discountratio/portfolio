@@ -39,9 +39,8 @@ const projects = [
       "You’re on my portfolio site! A personal portfolio project for a web developer that features a responsive design and custom JavaScript functions to create a dynamic gallery of projects and dynamic skills list. Check out the GitHub link.",
     tech: ["HTML", "CSS", "JavaScript"],
     image: "./assets/kevinpreview.png",
-    link: "https://github.com/discountratio/portfolio",
-    preview:
-      "https://htmlpreview.github.io/?https://github.com/discountratio/userprofile/blob/main/dist/index.html",
+    link: "/index.html",
+    preview: "https://kevinriley.netlify.app",
   },
 ];
 const skills = [
@@ -112,8 +111,8 @@ const renderProjects = () => {
     <div class="project-image-container">
     <a href="${project.preview}" target="_blank" class="project-link">
         <img class="project-image" src=${project.image} alt="screenshot of ${
-    project.name
-  }" />
+      project.name
+    }" />
         </a>
         </div>
 
