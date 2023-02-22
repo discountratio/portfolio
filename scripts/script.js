@@ -37,17 +37,12 @@ const projects = [
     bigIcon: " fa-solid fa-user",
     description:
       "A personal portfolio project for a web developer that features a responsive design and a custom JavaScript function to create a dynamic gallery of projects. The project also features a custom JavaScript function to create a dynamic skills list.",
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-    ],
+    tech: ["HTML", "CSS", "JavaScript"],
     image: "./assets/Kevin.jpg",
     link: "https://github.com/discountratio/portfolio",
     preview:
       "https://htmlpreview.github.io/?https://github.com/discountratio/userprofile/blob/main/dist/index.html",
   },
-
 ];
 const skills = [
   {
@@ -116,9 +111,7 @@ const renderProjects = () => {
 
       <div class="project-image-container">
       <a href="${project.preview}" target="_blank" class="project-link">
-          <img class="project-image" src=${project.image} alt="screenshot of ${
-      project.name
-    }" />
+          <img class="project-image" src=${project.image} alt="screenshot of ${project.name}" />
           </a>
           </div>
 

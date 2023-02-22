@@ -753,6 +753,18 @@ section {
         "linkList";
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 8fr 2fr 1fr;
+
+      &:nth-child(odd) {
+        grid-template-areas:
+        "title"
+        "image"
+        "description"
+        "linkList";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 8fr 2fr 1fr;
+      }
+
+      
       gap: 2vw;
       .project-list-link-container {
         .project-list {
