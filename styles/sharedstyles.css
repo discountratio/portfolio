@@ -121,6 +121,10 @@ a {
   opacity: 1;
   font-family: "Abril Fatface", cursive;
   font-weight: 600;
+  z-index: 9999;
+  position: absolute;
+  top: 8px;
+  left: 8px;
 }
 
 #header {
