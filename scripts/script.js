@@ -107,15 +107,20 @@ const renderProjects = () => {
     projectContainer.classList.add("project");
     projectContainer.innerHTML = `
 
+
+
+    <div class="project-image-container">
+    <a href="${project.preview}" target="_blank" class="project-link">
+        <img class="project-image" src=${project.image} alt="screenshot of ${
+    project.name
+  }" />
+        </a>
+        </div>
+
+    <div class="project-info-container">
     <h3 class="project-title">${project.title}</h3>
 
-      <div class="project-image-container">
-      <a href="${project.preview}" target="_blank" class="project-link">
-          <img class="project-image" src=${project.image} alt="screenshot of ${
-      project.name
-    }" />
-          </a>
-          </div>
+
 
       <div class="project-description-container">
           <p class="project-description">${project.description}</p>
@@ -136,7 +141,7 @@ const renderProjects = () => {
           }" target="_blank"  class="project-link"><i class="fas fa-window-restore"></i></a>
         </div>
 
-       
+       </div>
       </div>
 
     </div>

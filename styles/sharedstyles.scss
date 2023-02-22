@@ -175,7 +175,7 @@ a {
   font-weight: 600;
   z-index: 9999;
   position: absolute;
-  top: 8px;;;
+  top: 8px;
   left: 8px;
 }
 
@@ -249,8 +249,8 @@ section {
   @include flex-column;
   align-items: center;
   justify-content: center;
+  margin: 10vh 0;
   // min-height: calc(100vh - $header-height);
-  min-height: 100vh;
   scroll-margin-top: $header-height;
 }
 
@@ -435,22 +435,17 @@ section {
   color: $text-color-light;
 
   .project {
+    // opacity: 0.5;
     width: 100%;
     padding: 5vh 5vw;
     position: relative;
-    display: grid;
-    grid-template-areas:
-      "image title"
-      "image description"
-      "image linkList";
-    grid-template-columns: 1fr 1fr;
+    @include flex-row;
     gap: 2vw;
+
+    margin-bottom: 32px;
     &:nth-child(odd) {
-      grid-template-areas:
-        "title image"
-        "description image"
-        "linkList image";
-      grid-template-columns: 1fr 1fr;
+      flex-direction: row-reverse;
+      border-top: none;
     }
 
     .project-title {
@@ -459,6 +454,7 @@ section {
     .project-image-container {
       grid-area: image;
       aspect-ratio: 2/1.8;
+      min-width: 500px;
       border: 2px solid $text-highlight-1;
       position: relative;
       top: 4px;
@@ -470,15 +466,22 @@ section {
         height: 100%;
         object-fit: cover;
         vertical-align: top;
-        // position: absolute;
-        // top: -8px;
-        // left: -8px;
+        position: absolute;
+        top: -8px;
+        left: -8px;
         object-position: 0 0;
         transition: object-position 500ms;
         &:hover {
           object-position: 0 100%;
         }
       }
+    }
+    .project-info-container {
+      min-width: 30vw;
+      @include flex-column;
+      gap: 1rem;
+      justify-content: flex-end;;
+      align-items: flex-end;;
     }
 
     .project-description-container {
@@ -539,7 +542,7 @@ section {
 #contact {
   @include flex-column();
 
-  .section-content{
+  .section-content {
     width: clamp(320px, 100%, 540px);
   }
   .section-text-block {
@@ -727,23 +730,12 @@ section {
 
 @media (max-width: 900px) {
   #projects-container {
+
     .project {
-      grid-template-areas:
-        "title"
-        "image"
-        "description"
-        "linkList";
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 6fr 2fr 2fr;
+      @include flex-column;
 
       &:nth-child(odd) {
-        grid-template-areas:
-          "title"
-          "image"
-          "description"
-          "linkList";
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 6fr 2fr 2fr;
+        @include flex-column;
       }
 
       gap: 2vw;

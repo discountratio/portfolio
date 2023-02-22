@@ -198,7 +198,7 @@ section {
   justify-content: flex-start;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  margin: 10vh 0;
   scroll-margin-top: 60px;
 }
 
@@ -392,14 +392,16 @@ section {
   width: 100%;
   padding: 5vh 5vw;
   position: relative;
-  display: grid;
-  grid-template-areas: "image title" "image description" "image linkList";
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 2vw;
+  margin-bottom: 32px;
 }
 #projects-container .project:nth-child(odd) {
-  grid-template-areas: "title image" "description image" "linkList image";
-  grid-template-columns: 1fr 1fr;
+  flex-direction: row-reverse;
+  border-top: none;
 }
 #projects-container .project .project-title {
   grid-area: title;
@@ -407,6 +409,7 @@ section {
 #projects-container .project .project-image-container {
   grid-area: image;
   aspect-ratio: 2/1.8;
+  min-width: 500px;
   border: 2px solid #eec14e;
   position: relative;
   top: 4px;
@@ -420,6 +423,9 @@ section {
   -o-object-fit: cover;
      object-fit: cover;
   vertical-align: top;
+  position: absolute;
+  top: -8px;
+  left: -8px;
   -o-object-position: 0 0;
      object-position: 0 0;
   transition: object-position 500ms;
@@ -428,6 +434,16 @@ section {
 #projects-container .project .project-image-container .project-image:hover {
   -o-object-position: 0 100%;
      object-position: 0 100%;
+}
+#projects-container .project .project-info-container {
+  min-width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 #projects-container .project .project-description-container {
   grid-area: description;
@@ -664,15 +680,17 @@ section {
 
 @media (max-width: 900px) {
   #projects-container .project {
-    grid-template-areas: "title" "image" "description" "linkList";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 6fr 2fr 2fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     gap: 2vw;
   }
   #projects-container .project:nth-child(odd) {
-    grid-template-areas: "title" "image" "description" "linkList";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 6fr 2fr 2fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
   #projects-container .project .project-list-link-container .project-list {
     width: 100%;
