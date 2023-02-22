@@ -434,7 +434,6 @@ section {
   font-family: $sans;
   color: $text-color-light;
 
-  gap: 10vh;
   .project {
     width: 100%;
     padding: 5vh 5vw;
@@ -735,7 +734,7 @@ section {
         "description"
         "linkList";
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr 8fr 2fr 1fr;
+      grid-template-rows: 1fr 6fr 2fr 2fr;
 
       &:nth-child(odd) {
         grid-template-areas:
@@ -744,7 +743,7 @@ section {
           "description"
           "linkList";
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 8fr 2fr 1fr;
+        grid-template-rows: 1fr 6fr 2fr 2fr;
       }
 
       gap: 2vw;
