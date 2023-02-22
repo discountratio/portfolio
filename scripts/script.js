@@ -1,6 +1,17 @@
 const projects = [
   {
     id: 1,
+    title: "Digital Artist Portfolio and Shop",
+    bigIcon: " fa-solid fa-brush",
+    description:
+      " Portfolio and shop for an artist with a gallery of AI-generated assets and custom JavaScript functions to create and populate the dynamic gallery. Features a shopping cart that uses local storage to store user shopping data and background moving gradient UI achieved via CSS animation.",
+    tech: ["HTML", "CSS", "JavaScript", "REST API", "JSON"],
+    image: "./assets/penelopeparkpreview.png",
+    link: "https://github.com/discountratio/rabbit-website",
+    preview: "https://penelopepark.netlify.app/",
+  },
+  {
+    id: 2,
     title: "User Profile for a Language Learning Application",
     bigIcon: " fa-solid fa-language",
     description:
@@ -20,18 +31,23 @@ const projects = [
     preview:
       "https://htmlpreview.github.io/?https://github.com/discountratio/userprofile/blob/main/dist/index.html",
   },
-
   {
-    id: 2,
-    title: "Digital Artist Portfolio and Shop",
-    bigIcon: " fa-solid fa-brush",
+    id: 3,
+    title: "Personal Portfolio Project",
+    bigIcon: " fa-solid fa-user",
     description:
-      " Portfolio and shop for an artist with a gallery of AI-generated assets and custom JavaScript functions to create and populate the dynamic gallery. Features a shopping cart that uses local storage to store user shopping data and background moving gradient UI achieved via CSS animation.",
-    tech: ["HTML", "CSS", "JavaScript", "REST API", "JSON"],
-    image: "./assets/penelope.jpg",
-    link: "https://github.com/discountratio/rabbit-website",
-    preview: "https://rabbitsforsale.netlify.app/",
+      "A personal portfolio project for a web developer that features a responsive design and a custom JavaScript function to create a dynamic gallery of projects. The project also features a custom JavaScript function to create a dynamic skills list.",
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
+    image: "./assets/Kevin.jpg",
+    link: "https://github.com/discountratio/portfolio",
+    preview:
+      "https://htmlpreview.github.io/?https://github.com/discountratio/userprofile/blob/main/dist/index.html",
   },
+
 ];
 const skills = [
   {
@@ -88,7 +104,6 @@ const skills = [
 
 const skillsList = document.querySelector("#skills-list");
 
-
 const renderProjects = () => {
   const projectsContainer = document.querySelector("#projects-container");
 
@@ -100,8 +115,12 @@ const renderProjects = () => {
     <h3 class="project-title">${project.title}</h3>
 
       <div class="project-image-container">
-          <img class="project-image" src=${project.image} alt="screenshot of ${project.name}" />
-      </div>
+      <a href="${project.preview}" target="_blank" class="project-link">
+          <img class="project-image" src=${project.image} alt="screenshot of ${
+      project.name
+    }" />
+          </a>
+          </div>
 
       <div class="project-description-container">
           <p class="project-description">${project.description}</p>
@@ -109,8 +128,12 @@ const renderProjects = () => {
 
       <div class="project-list-link-container">
         <div class="project-links">
-          <a href="${project.link}" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-          <a href="${project.preview}" target="_blank"  class="project-link"><i class="fas fa-window-restore"></i></a>
+          <a href="${
+            project.link
+          }" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+          <a href="${
+            project.preview
+          }" target="_blank"  class="project-link"><i class="fas fa-window-restore"></i></a>
         </div>
 
         <ul class="project-list">
