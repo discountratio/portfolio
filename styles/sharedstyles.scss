@@ -435,41 +435,41 @@ section {
 
   .project {
     width: 100%;
-    height: 90vh;
+    // height: 90vh;
     padding: 5vh 5vw;
     margin-bottom: 10vh;
     position: relative;
     display: grid;
     grid-template-areas:
-      "title title"
-      "image description"
-      "image linkList";
-
-    grid-template-columns: 6fr 4fr;
-    grid-template-rows: 1fr 6fr 4fr;
+    "image title"
+    "image description"
+    "image linkList";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr;
     gap: 2vw;
     &:nth-child(odd) {
       grid-template-areas:
-        "title title"
+        "title image"
         "description image"
         "linkList image";
-      grid-template-columns: 4fr 6fr;
-      grid-template-rows: 1fr 6fr 4fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 2fr 2fr;
     }
 
     .project-title {
-      background: darkblue;
+      // background: darkblue;
       grid-area: title;
       width: 100%;
       font-family: $sans;
       color: $text-color-light;
     }
     .project-image-container {
-      background: darkred;
+      // background: darkred;
       grid-area: image;
-      height: auto;
-      width: 100%;
-      aspect-ratio: 2/1.25;
+      // height: auto;
+      // width: 100%;
+      
+      // aspect-ratio: 2/1.5;
       border: 2px solid $text-highlight-1;
       position: relative;
       top: 4px;
@@ -494,31 +494,32 @@ section {
     }
 
     .project-description-container {
-      background: darkgreen;
+      // background: darkgreen;
       grid-area: description;
-      width: 100%;
+      // width: 100%;
       // height: 100%;
-      // background: #555;
-      // box-shadow: 4px 4px 10px 0px #222;
+      background: #555;
+      box-shadow: 4px 4px 10px 0px #222;
       color: $text-color-light;
       padding: 1vw;
 
       .project-description {
         @include text-small;
         
-        font-family: $monospace;
+        font-family: $sans;
       }
     }
 
     .project-list-link-container {
-      background: darkorange;
-      @include flex-row;
+      // background: darkorange;
+      @include flex-column;
       justify-content: flex-end;
+      align-items: flex-end;
       grid-area: linkList;
       height: clamp(100px, 10vh, 200px);
 
       .project-list {
-        background: darkkhaki;
+        // background: darkkhaki;
         @include flex-row;
         color: $text-highlight-1;
         font-family: $monospace;
@@ -538,7 +539,7 @@ section {
       }
 
       .project-links {
-        background: darkorchid;
+        // background: darkorchid;
         @include flex-row;
         gap: 1vw;
         height: 100%;
@@ -560,6 +561,8 @@ section {
 #contact {
   height: 100vh;
   @include flex-column();
+  width: clamp(320px, 100%, 800px);
+  background: red;
   margin-bottom: 20vh;
   .section-text-block {
     @include flex-column;

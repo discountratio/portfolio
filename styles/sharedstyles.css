@@ -406,34 +406,28 @@ section {
 }
 #projects-container .project {
   width: 100%;
-  height: 90vh;
   padding: 5vh 5vw;
   margin-bottom: 10vh;
   position: relative;
   display: grid;
-  grid-template-areas: "title title" "image description" "image linkList";
-  grid-template-columns: 6fr 4fr;
-  grid-template-rows: 1fr 6fr 4fr;
+  grid-template-areas: "image title" "image description" "image linkList";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr;
   gap: 2vw;
 }
 #projects-container .project:nth-child(odd) {
-  grid-template-areas: "title title" "description image" "linkList image";
-  grid-template-columns: 4fr 6fr;
-  grid-template-rows: 1fr 6fr 4fr;
+  grid-template-areas: "title image" "description image" "linkList image";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr;
 }
 #projects-container .project .project-title {
-  background: darkblue;
   grid-area: title;
   width: 100%;
   font-family: "Open sans", sans-serif;
   color: #ffffff;
 }
 #projects-container .project .project-image-container {
-  background: darkred;
   grid-area: image;
-  height: auto;
-  width: 100%;
-  aspect-ratio: 2/1.25;
   border: 2px solid #eec14e;
   position: relative;
   top: 4px;
@@ -460,28 +454,27 @@ section {
      object-position: 0 100%;
 }
 #projects-container .project .project-description-container {
-  background: darkgreen;
   grid-area: description;
-  width: 100%;
+  background: #555;
+  box-shadow: 4px 4px 10px 0px #222;
   color: #ffffff;
   padding: 1vw;
 }
 #projects-container .project .project-description-container .project-description {
   font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
-  font-family: monospace;
+  font-family: "Open sans", sans-serif;
 }
 #projects-container .project .project-list-link-container {
-  background: darkorange;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   justify-content: flex-end;
+  align-items: flex-end;
   grid-area: linkList;
   height: clamp(100px, 10vh, 200px);
 }
 #projects-container .project .project-list-link-container .project-list {
-  background: darkkhaki;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -501,7 +494,6 @@ section {
   margin: 0 0.25rem;
 }
 #projects-container .project .project-list-link-container .project-links {
-  background: darkorchid;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -526,6 +518,8 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  width: clamp(320px, 100%, 800px);
+  background: red;
   margin-bottom: 20vh;
 }
 #contact .section-text-block {

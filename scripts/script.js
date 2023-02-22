@@ -111,7 +111,9 @@ const renderProjects = () => {
 
       <div class="project-image-container">
       <a href="${project.preview}" target="_blank" class="project-link">
-          <img class="project-image" src=${project.image} alt="screenshot of ${project.name}" />
+          <img class="project-image" src=${project.image} alt="screenshot of ${
+      project.name
+    }" />
           </a>
           </div>
 
@@ -120,6 +122,11 @@ const renderProjects = () => {
       </div>
 
       <div class="project-list-link-container">
+      <ul class="project-list">
+      ${project.tech
+        .map((tech) => `<li class="project-list-item">${tech}</li>`)
+        .join("")}
+    </ul>
         <div class="project-links">
           <a href="${
             project.link
@@ -129,11 +136,7 @@ const renderProjects = () => {
           }" target="_blank"  class="project-link"><i class="fas fa-window-restore"></i></a>
         </div>
 
-        <ul class="project-list">
-          ${project.tech
-            .map((tech) => `<li class="project-list-item">${tech}</li>`)
-            .join("")}
-        </ul>
+       
       </div>
 
     </div>
