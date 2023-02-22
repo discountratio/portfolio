@@ -38,7 +38,7 @@ const projects = [
     description:
       "A personal portfolio project for a web developer that features a responsive design and a custom JavaScript function to create a dynamic gallery of projects. The project also features a custom JavaScript function to create a dynamic skills list.",
     tech: ["HTML", "CSS", "JavaScript"],
-    image: "./assets/Kevin.jpg",
+    image: "./assets/kevinpreview.png",
     link: "https://github.com/discountratio/portfolio",
     preview:
       "https://htmlpreview.github.io/?https://github.com/discountratio/userprofile/blob/main/dist/index.html",
