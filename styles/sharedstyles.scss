@@ -708,7 +708,7 @@ section {
   min-height: 20vh;
   width: 100vw;
   padding: $sidebar-width;
-  background: green;
+  background: #333;
   @include text-small;
   @include flex-row;
   font-family: $monospace;
