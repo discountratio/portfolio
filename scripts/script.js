@@ -88,43 +88,38 @@ const skills = [
 
 const skillsList = document.querySelector("#skills-list");
 
+
 const renderProjects = () => {
   const projectsContainer = document.querySelector("#projects-container");
 
   projects.forEach((project) => {
     const projectContainer = document.createElement("div");
-    projectContainer.classList.add("project-container");
+    projectContainer.classList.add("project");
     projectContainer.innerHTML = `
+
     <h3 class="project-title">${project.title}</h3>
 
-    <div class="project-image-container">
-    <img class="project-image" src=${project.image} alt="screenshot of ${
-      project.name
-    }" />
-  </div>
-    <div class="project-information-container">
-      
-        <p class="project-description">
-          ${project.description} 
-        
-        </p>
+      <div class="project-image-container">
+          <img class="project-image" src=${project.image} alt="screenshot of ${project.name}" />
+      </div>
 
-        <ul class="project-library-list">
-        ${project.tech
-          .map((tech) => `<li class="project-list-item">${tech}</li>`)
-          .join("")}
-      </ul>
-     
-      <div class="project-links">
-      <a href="${
-        project.link
-      }" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-      <a href="${
-        project.preview
-      }" target="_blank"  class="project-link"><i class="fas fa-window-restore"></i></a>
-    </div>
-      
-        
+      <div class="project-description-container">
+          <p class="project-description">${project.description}</p>
+      </div>
+
+      <div class="project-list-link-container">
+        <div class="project-links">
+          <a href="${project.link}" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+          <a href="${project.preview}" target="_blank"  class="project-link"><i class="fas fa-window-restore"></i></a>
+        </div>
+
+        <ul class="project-list">
+          ${project.tech
+            .map((tech) => `<li class="project-list-item">${tech}</li>`)
+            .join("")}
+        </ul>
+      </div>
+
     </div>
   
     `;
@@ -148,11 +143,6 @@ function renderSkills() {
     skillsList.appendChild(skillItem);
   });
 }
-
-
-
-
-
 
 renderSkills();
 renderProjects();
