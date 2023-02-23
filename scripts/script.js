@@ -167,5 +167,19 @@ function renderSkills() {
   });
 }
 
+const navButton = document.getElementById("nav-button");
+
+
+const handleNavButton = () => {
+  const nav = document.getElementById("nav");
+  nav.classList.toggle("nav-display");
+};
+
+navButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  handleNavButton();
+});
+
 renderSkills();
 renderProjects();
+

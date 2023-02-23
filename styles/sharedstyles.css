@@ -144,8 +144,27 @@ a {
   font-family: "Open sans", sans-serif;
 }
 
-#nav {
-  font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
+#nav-button {
+  z-index: 99999;
+  position: fixed;
+  top: 0.5rem;
+  right: 1rem;
+  display: none;
+  font-size: 40px;
+  outline: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  color: white;
+  background: none;
+  transition: scale 120ms;
+}
+#nav-button:hover {
+  scale: 1.2;
+}
+
+.nav {
+  font-size: clamp(1.25rem, 1.25rem + 1vw, 1.25rem);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -153,37 +172,98 @@ a {
   height: 100%;
   font-family: monospace;
 }
-#nav .nav-menu-icon {
-  color: white;
-  font-size: clamp(24px, 4vw, 36px);
-  padding: 1vw;
-  display: none;
-}
-#nav .navlinks-container {
+.nav .navlinks-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
   gap: 5vw;
+  justify-content: flex-end;
 }
-#nav .email-link {
+.nav .email-link {
   display: none;
 }
-#nav .navlink {
+.nav .navlink {
   white-space: nowrap;
 }
-#nav .navlink .navlink-number {
+.nav .navlink .navlink-number {
   color: #eec14e;
   font-family: monospace;
 }
-#nav .navlink .navlink-word {
+.nav .navlink .navlink-word {
   color: #ffffff;
   transition: color 200ms;
   font-family: monospace;
 }
-#nav .navlink:hover .navlink-word {
+.nav .navlink:hover .navlink-word {
   color: #eec14e;
+}
+
+@media (max-width: 800px) {
+  #nav-button {
+    display: block;
+  }
+  .nav {
+    font-size: clamp(1.25rem, 1.25rem + 1vw, 1.25rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: monospace;
+    width: 0vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    transition: width 400ms;
+  }
+  .nav .navlinks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: flex-start;
+    padding-top: 20vh;
+    background: #666;
+    height: 100vh;
+    width: 100%;
+    gap: 5vh;
+  }
+  .nav .email-link {
+    color: #eec14e;
+    position: absolute;
+    bottom: 10vh;
+  }
+  .nav .navlink {
+    white-space: nowrap;
+  }
+  .nav .navlink .navlink-number {
+    color: #eec14e;
+    font-family: monospace;
+  }
+  .nav .navlink .navlink-word {
+    color: #ffffff;
+    transition: color 200ms;
+    font-family: monospace;
+  }
+  .nav .navlink:hover .navlink-word {
+    color: #eec14e;
+  }
+  .nav .email-link {
+    display: block;
+  }
+}
+.nav-display {
+  width: 90vw;
+  opacity: 1;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+          user-select: auto;
 }
 
 /* Section default styles
@@ -553,101 +633,6 @@ section {
 @media screen and (max-width: 900px) {
   #header {
     box-shadow: none;
-  }
-  #nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: clamp(1.25rem, 1.25rem + 1vw, 1.25rem);
-    position: fixed;
-    align-items: flex-end;
-    padding: 0.5rem;
-    top: 0;
-    right: 0;
-    gap: 2vw;
-    width: 60px;
-    height: 100vh;
-    background: transparent;
-    font-family: monospace;
-  }
-  #nav .navlinks-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    margin-top: 10vh;
-    gap: 2vh;
-  }
-  #nav .nav-menu-icon {
-    display: block;
-    transition: rotate 200ms;
-  }
-  #nav .navlink {
-    opacity: 0;
-    width: 0%;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    transition: width 500ms, opacity 0ms;
-    position: relative;
-  }
-  #nav .navlink::after {
-    content: "";
-    position: absolute;
-    bottom: 4px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #eec14e;
-    transition: width 200ms;
-  }
-  #nav .navlink:hover::after {
-    width: 100%;
-  }
-  #nav .resume-container,
-  #nav .email-link {
-    opacity: 0;
-    width: -moz-fit-content;
-    width: fit-content;
-    transition: opacity 500ms 50ms;
-  }
-  #nav .email-link {
-    font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
-    display: block;
-    text-align: center;
-    position: absolute;
-    bottom: 5vh;
-    height: auto;
-    width: 0%;
-    padding: 0;
-    color: #eec14e;
-    transition: all 300ms;
-  }
-  #nav:hover, #nav:focus, #nav:active {
-    width: 90vw;
-    height: 100vh;
-    background: #666;
-    transition: height 0ms 1000ms;
-  }
-  #nav:hover .nav-menu-icon, #nav:focus .nav-menu-icon, #nav:active .nav-menu-icon {
-    rotate: 90deg;
-  }
-  #nav:hover .navlink,
-  #nav:hover .resume-container,
-  #nav:hover .email-link, #nav:focus .navlink,
-  #nav:focus .resume-container,
-  #nav:focus .email-link, #nav:active .navlink,
-  #nav:active .resume-container,
-  #nav:active .email-link {
-    display: block;
-    opacity: 1;
-  }
-  #nav:hover .navlink, #nav:focus .navlink, #nav:active .navlink {
-    width: 70%;
-  }
-  #nav:hover .email-link, #nav:focus .email-link, #nav:active .email-link {
-    width: 90%;
   }
   #about .section-content {
     display: flex;
