@@ -174,7 +174,6 @@ a {
   opacity: 1;
   font-family: "Abril Fatface", cursive;
   font-weight: 600;
-  z-index: 9999;
   position: absolute;
   top: 8px;
   left: 8px;
@@ -369,7 +368,7 @@ section {
 
 #about {
   .about-image-container {
-    width: 300px;
+    width: clamp(300px, 100%, 600px);
     aspect-ratio: 1/1.5;
     object-fit: cover;
     border: 0.2rem solid $text-highlight-1;
@@ -458,6 +457,7 @@ section {
     .project-image-container {
       grid-area: image;
       aspect-ratio: 2/1.8;
+      width: clamp(300px, 100%, 600px);
       min-width: 300px;
       border: 2px solid $text-highlight-1;
       position: relative;
@@ -587,7 +587,7 @@ section {
 
 @media screen and (max-width: 900px) {
   #header {
-    background: transparent;
+    // background: transparent;
     box-shadow: none;
   }
 
@@ -706,6 +706,8 @@ section {
 #footer {
   @include text-small;
   @include flex-row;
+  background: $header-background;
+
   min-height: 20vh;
   width: 100vw;
   padding: $sidebar-width;
@@ -729,7 +731,7 @@ section {
       line-height: 30px;
       margin: 0.25rem;
       letter-spacing: 2px;
-      &:hover{
+      &:hover {
         color: $text-highlight-1;
       }
     }
