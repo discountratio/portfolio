@@ -534,7 +534,8 @@ section {
 #contact .contact-form-container input::-moz-placeholder {
   color: #ffffff;
 }
-#contact .contact-form-container input::placeholder, #contact .contact-form-container textarea {
+#contact .contact-form-container input::placeholder,
+#contact .contact-form-container textarea {
   color: #ffffff;
 }
 #contact .contact-form-container input,
@@ -675,16 +676,28 @@ section {
 #footer .footer-left {
   font-weight: 600;
 }
-#footer .footer-right {
+#footer .footer-left {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  text-align: right;
+  text-align: left;
 }
-#footer .footer-right p,
-#footer .footer-right h3 {
+#footer .footer-left p,
+#footer .footer-left h3 {
   width: 100%;
+  line-height: 30px;
+  margin: 0.25rem;
+  letter-spacing: 2px;
+}
+#footer .footer-left p:hover,
+#footer .footer-left h3:hover {
+  color: #eec14e;
+}
+#footer .footer-left .footer-icon {
+  color: #eec14e;
+  scale: 1.5;
+  margin-right: 0.5rem;
 }
 
 @media (max-width: 900px) {
