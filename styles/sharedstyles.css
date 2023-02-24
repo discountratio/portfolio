@@ -621,6 +621,7 @@ section {
 }
 #contact .contact-form-container input,
 #contact .contact-form-container textarea {
+  text-indent: 0;
   margin: 0.5rem 0;
   width: 100%;
   padding: 0.5rem 0.5rem;
