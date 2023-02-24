@@ -169,6 +169,13 @@ function renderSkills() {
 
 const navButton = document.getElementById("nav-button");
 
+const navLinks = [...document.querySelectorAll(".navlink")]
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    handleNavButton();
+  });
+});
 
 const handleNavButton = () => {
   const nav = document.getElementById("nav");
