@@ -369,7 +369,7 @@ section {
 }
 #hero .hero-intro-text {
   margin-top: 20vh;
-  font-size: clamp(2.25rem, 2.25rem + 2vw, 2.5rem);
+  font-size: clamp(2.25rem, 2rem + 5vw, 4rem);
   font-family: "Open sans", sans-serif;
   color: #ffffff;
   font-weight: 800;
@@ -456,7 +456,7 @@ section {
   font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
 }
 #about #skills-list .skill-list-item .skill-list-icon {
-  font-size: clamp(2.25rem, 2.25rem + 2vw, 2.5rem);
+  font-size: clamp(2.25rem, 2rem + 5vw, 4rem);
   width: 1.25rem;
   height: auto;
   color: #eec14e;
@@ -625,6 +625,7 @@ section {
   width: 100%;
   padding: 0.5rem 0.5rem;
   font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
+  color: #ffffff;
   font-family: "Open sans", sans-serif;
   resize: vertical;
   border: none;

@@ -61,7 +61,7 @@ html {
   font-size: clamp(1.5rem, calc(1.5rem + 1vw), 1.8rem);
 }
 @mixin text-huge {
-  font-size: clamp(2.25rem, calc(2.25rem + 2vw), 2.5rem);
+  font-size: clamp(2.25rem, calc(2rem + 5vw), 4rem);
 }
 
 li {
@@ -650,6 +650,8 @@ section {
     label {
       width: 100%;
     }
+
+
     input::placeholder,
     textarea {
       color: $text-color-light;
@@ -660,6 +662,7 @@ section {
       width: 100%;
       padding: 0.5rem 0.5rem;
       @include text-small;
+      color: $text-color-light;
       font-family: $sans;
       resize: vertical;
       border: none;
@@ -679,6 +682,8 @@ section {
     // display: none;
   }
 
+  #hero{
+  }
   #about {
     .section-content {
       @include flex-column;
