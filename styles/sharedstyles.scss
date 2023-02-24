@@ -14,8 +14,8 @@
 $background: #333;
 $header-background: #222;
 $text-highlight-1: #eec14e;
-$text-color-light: #ffffff;
-$text-color-dark: #000000;
+$text-color-light: #e7e7e7;
+$text-color-dark: #232323;
 
 $monospace: monospace;
 $serif: "Abril Fatface", serif;
@@ -228,10 +228,9 @@ a {
     @include flex-row();
     width: 100%;
     gap: 5vw;
-    justify-content: flex-end;;
+    justify-content: flex-end;
   }
 
-  
   //only for mobile nav
   .email-link {
     display: none;
@@ -257,7 +256,7 @@ a {
 }
 
 @media (max-width: 800px) {
-  #nav-button{
+  #nav-button {
     display: block;
   }
   .nav {
@@ -272,7 +271,6 @@ a {
     opacity: 0;
     user-select: none;
     transition: width 400ms;
-    
 
     .navlinks-container {
       @include flex-column;
@@ -651,7 +649,6 @@ section {
       width: 100%;
     }
 
-
     input::placeholder,
     textarea {
       color: $text-color-light;
@@ -683,7 +680,7 @@ section {
     // display: none;
   }
 
-  #hero{
+  #hero {
   }
   #about {
     .section-content {

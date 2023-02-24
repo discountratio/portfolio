@@ -193,7 +193,7 @@ a {
   font-family: monospace;
 }
 .nav .navlink .navlink-word {
-  color: #ffffff;
+  color: #e7e7e7;
   transition: color 200ms;
   font-family: monospace;
 }
@@ -248,7 +248,7 @@ a {
     font-family: monospace;
   }
   .nav .navlink .navlink-word {
-    color: #ffffff;
+    color: #e7e7e7;
     transition: color 200ms;
     font-family: monospace;
   }
@@ -295,7 +295,7 @@ section {
   font-family: "Open sans", sans-serif;
   font-weight: 700;
   text-transform: capitalize;
-  color: #ffffff;
+  color: #e7e7e7;
   gap: 1rem;
   white-space: nowrap;
   padding: 0 0.5rem;
@@ -329,7 +329,7 @@ section {
   width: 100%;
   height: 100%;
   font-family: "Open sans", sans-serif;
-  color: #ffffff;
+  color: #e7e7e7;
 }
 .section-text-block br {
   margin-bottom: 1rem;
@@ -371,7 +371,7 @@ section {
   margin-top: 20vh;
   font-size: clamp(2.25rem, 2rem + 5vw, 4rem);
   font-family: "Open sans", sans-serif;
-  color: #ffffff;
+  color: #e7e7e7;
   font-weight: 800;
   justify-content: center;
   text-align: center;
@@ -469,7 +469,7 @@ section {
   justify-content: flex-start;
   font-size: clamp(1.25rem, 1.25rem + 1vw, 1.25rem);
   font-family: "Open sans", sans-serif;
-  color: #ffffff;
+  color: #e7e7e7;
 }
 #projects-container .project {
   width: 100%;
@@ -575,7 +575,7 @@ section {
   animation: bounce 3s infinite;
 }
 #projects-container .project .project-list-link-container .project-links .project-link:hover {
-  color: #ffffff;
+  color: #e7e7e7;
   animation: bounce 0s infinite;
 }
 
@@ -613,11 +613,11 @@ section {
   width: 100%;
 }
 #contact .contact-form-container input::-moz-placeholder {
-  color: #ffffff;
+  color: #e7e7e7;
 }
 #contact .contact-form-container input::placeholder,
 #contact .contact-form-container textarea {
-  color: #ffffff;
+  color: #e7e7e7;
 }
 #contact .contact-form-container input,
 #contact .contact-form-container textarea {
@@ -626,7 +626,7 @@ section {
   width: 100%;
   padding: 0.5rem 0.5rem;
   font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
-  color: #ffffff;
+  color: #e7e7e7;
   font-family: "Open sans", sans-serif;
   resize: vertical;
   border: none;
@@ -656,7 +656,7 @@ section {
   padding: clamp(40px, 100%, 4vw);
   box-shadow: 0px -1px 4px 1px rgba(0, 0, 0, 0.5);
   font-family: monospace;
-  color: #ffffff;
+  color: #e7e7e7;
   justify-content: space-between;
   padding: 2vw 5vw;
   align-items: center;
