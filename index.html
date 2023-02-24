@@ -9,16 +9,15 @@
       src="https://kit.fontawesome.com/582ae40cce.js"
       crossorigin="anonymous"></script>
     <script src="./scripts/script.js" type="text/javascript" defer></script>
-
     <title>Kevin Riley</title>
   </head>
 
   <body>
-    <!-- Header and Navbar -->
-
     <button id="nav-button" class="nav-button">
       <i class="fa-solid fa-bars"></i>
     </button>
+
+    <!-- Header and Navbar -->
     <header id="header">
       <div id="logo"><em> Kev.</em></div>
 
@@ -45,40 +44,20 @@
             class="resume-link resume-container click-me-container"
             >Resume</a
           >
-
           <a class="email-link" mailto="Kev.nR.ley@gmail.com"
             >Kev.nR.ley@gmail.com</a
           >
         </div>
       </nav>
-      <!-- <button id="nav-toggle">MenuToggle</button> -->
     </header>
 
-    <!-- <div id="bottom-left-stuff">
-      <div class="social-links">
-        <a href="">
-          <i class="fab hide fa-linkedin social-icon"></i>
-        </a>
-
-        <a href="">
-          <i class="fab hide fa-github social-icon"></i>
-        </a>
-
-        <i class="social-icon click stay fab fa-joomla"></i>
-      </div>
-      <div class="spacing-block hide"></div>
-      <a class="email-link hide" mailto="kev.nr.ley@gmail.com">
-        Kev.nR.ley@gmail.com
-      </a>
-    </div> -->
-
-    <!-- Main Content -->
+    <!-- Page Content -->
     <div id="page">
-      <!-- hero Section -->
+      <!-- Hero -->
       <section id="hero">
         <p class="hero-intro-text">
           Hello, my name is
-          <span class="hero-name">Kevin Riley</span>.<br />
+          <span class="hero-name">Kevin Riley.</span><br />
           I'm a front-end web developer.
         </p>
 
@@ -90,21 +69,20 @@
         </div>
       </section>
 
-      <!-- ---------------------------------------------------------------------- -->
+      <!-- About -->
       <section id="about">
         <h2 class="section-header">
           <span class="header-number">01.</span> about me
         </h2>
 
-        <div class="section-content">
-          <div class="about-image-container">
-            <img class="about-image" src="./assets/Kevin.jpg" alt="" />
+        <div class="section-content about-content">
+          <div class="about-image-container image-container">
+            <img class="about-image image" src="./assets/Kevin.jpg" alt="" />
           </div>
 
           <div class="about-text-list">
             <div class="section-text-block">
               <p>
-                <!-- You can call me Kev! -->
                 <br />
                 My background in the service industry, experience creating
                 user-friendly systems as an administrative professional, and
@@ -118,24 +96,43 @@
               </p>
             </div>
             <ul class="section-list" id="skills-list">
-              <!-- HTML generated in script.js -->
-              <!-- #skills-list, .skill-list-item, .skill-list-title, .skill-list-icon -->
+              <!-- HTML generated in script.js @ renderSkills() -->
+              <!-- 
+                #skills-list
+                |-.skill-list-item 
+                  |- .skill-list-title 
+                  |- .skill-list-icon 
+                -->
             </ul>
           </div>
         </div>
       </section>
 
+      <!-- Projects -->
       <section id="projects">
         <h2 class="section-header">02. Projects</h2>
-        <div class="section-content" id="projects-container"></div>
+        <div class="section-content" id="projects-container">
+          <!-- HTML generated in script.js @ renderProjects() -->
+          <!-- 
+            .project
+              |- .project-image-container 
+                |-.project-image
+              |- .project-info-container
+                |- .project-title
+                |- .project-description
+                |- .project-list 
+              |- .project-list-link-container
+                |- .project-list
+                |- .project-links
+          -->
+        </div>
       </section>
 
+      <!-- Contact -->
       <section id="contact">
         <h2 class="section-header">
           <span class="header-number">03.</span> Contact
         </h2>
-        <!-- end section-header -->
-
         <div class="section-content">
           <div class="section-text-block">
             <h2>Get in touch.</h2>
@@ -145,8 +142,6 @@
               together, please feel free to reach out!
             </p>
           </div>
-          <!-- end section-text-block -->
-
           <div class="contact-form-container">
             <form
               action="https://formsubmit.co/kev.nr.ley@gmail.com"
@@ -168,20 +163,18 @@
                 required></textarea>
             </label>
 
-            <button
+            <div
               class="click-me-container"
               type="submit"
               id="contact-form-submit">
               Send
-            </button>
+            </div>
           </div>
-
-          <!-- end contact-form-container -->
         </div>
-        <!-- end section-content -->
       </section>
     </div>
-
+    <!-- End Page -->
+    <!-- Footer -->
     <footer id="footer">
       <div class="footer-left">
         <p>

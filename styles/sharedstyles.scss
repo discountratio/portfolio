@@ -1,42 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+// font-family: 'Abril Fatface', cursive; //300-800
+// font-family: 'Open Sans', sans-serif; //300-800
+// font-family: 'Poppins', sans-serif; //100-900
 
-// font-family: 'Abril Fatface', cursive;
-// font-family: 'Open Sans', sans-serif;
-// font-family: 'Poppins', sans-serif;
+// Variabels --------------------------------------------------------
+$dark-1: #111;
+$dark-2: #222;
+$dark-3: #333;
+$dark-4: #444;
+$dark-5: #555;
+$dark-6: #666;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  // border: 1px solid lime;
-}
+$light-1: #fff;
+$light-2: #eee;
+$light-3: #ddd;
+$light-4: #ccc;
+$light-5: #bbb;
+$light-6: #aaa;
 
-$background: #333;
-$header-background: #222;
-$text-highlight-1: #eec14e;
-$text-color-light: #e7e7e7;
-$text-color-dark: #232323;
+$highlight-1: #eecc33;
+
+$background: $dark-3;
+$header-background: $dark-2;
+$text-color-light: $light-2;
+$text-color-dark: $dark-2;
 
 $monospace: monospace;
 $serif: "Abril Fatface", serif;
 $sans: "Open sans", sans-serif;
 
 $header-height: 60px;
+
+$inner-clamp: clamp(300px, 100%, 600px);
+$bigger-clamp: clamp(300px, 100%, 800px);
 $sidebar-width: clamp(40px, 100%, 4vw);
+$section-width: clamp(300px, 100%, 1400px);
 
-$inner-width: clamp(300px, 100%, 1400px);
-
-body {
-  max-width: 100%;
-  width: 100vw;
-  // min-width: 360px;
-  overflow-x: hidden;
-  background-color: $background;
-}
-html {
-  scroll-behavior: smooth;
-  scroll-snap-align: start;
-}
+// ==================================================================
+// Mixins -----------------------------------------------------------
 @mixin flex-row {
   display: flex;
   flex-direction: row;
@@ -48,129 +49,121 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 @mixin text-small {
   font-size: clamp(0.75rem, calc(0.75rem + 0.25vw), 1rem);
 }
+
 @mixin text-medium {
   font-size: clamp(1.25rem, calc(1.25rem + 1vw), 1.25rem);
 }
+
 @mixin text-large {
   font-size: clamp(1.5rem, calc(1.5rem + 1vw), 1.8rem);
 }
+
 @mixin text-huge {
   font-size: clamp(2.25rem, calc(2rem + 5vw), 4rem);
+}
+
+@mixin hover-line {
+  position: relative;
+  padding-bottom: 0px;
+  &::after {
+    content: "";
+    width: 0%;
+    height: 0px;
+    background-color: $highlight-1;
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    transition: width 400ms ease;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+      height: 2px;
+    }
+  }
+}
+
+@mixin hover-highlight {
+  color: $highlight-1;
+  transition: 200ms;
+
+  &:hover {
+    color: $text-color-light;
+  }
+}
+
+@mixin hover-image-scroll {
+  vertical-align: top;
+  object-position: 0 0;
+  transition: object-position 500ms;
+  &:hover {
+    object-position: 0 100%;
+  }
+}
+// ==================================================================
+
+//Global styles -----------------------------------------------------
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $sans;
+  // border: 1px solid lime;
+}
+
+body {
+  max-width: 100%;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: $background;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
 }
 
 li {
   list-style: none;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
 
-#bottom-left-stuff {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  padding: 32px;
-  z-index: 100;
-  display: grid;
-  grid-template-areas:
-    "socials ."
-    "block email";
-
-  .stay {
-    background: #333;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 32px;
-    height: 32px;
-    margin-left: 16px;
-    margin-bottom: 8px;
-    transition: all 200ms;
-  }
-
-  .hide {
-    // display: none;
-    opacity: 0;
-    width: 0px;
-    transition: all 100ms 200ms;
-  }
-
-  .social-links {
-    grid-area: socials;
-    @include flex-column;
-    @include text-large;
-    width: $sidebar-width;
-    z-index: 99;
-    position: relative;
-    padding-left: -8px;
-    .social-links {
-      @include flex-column;
-    }
-    .social-icon {
-      color: $text-highlight-1;
-      padding: 0.5rem 0;
-      // &:hover {
-      //   animation: bounce 2s infinite;
-      //   scale: 1.2;
-      // }
-    }
-  }
-  .spacing-block {
-    grid-area: block;
-    width: 64px;
-    height: 64px;
-    padding: 32px;
-    border-left: 2px solid $text-highlight-1;
-    border-bottom: 2px solid $text-highlight-1;
-  }
-  .email-link {
-    @include text-medium;
-    color: $text-highlight-1;
-    font-family: $monospace;
-    grid-area: email;
-    text-align: bottom;
-    vertical-align: bottom;
-    height: 48px;
-    line-height: 96px;
-    &:hover {
-      letter-spacing: 1px;
-      transition: letter-spacing 200ms;
-      color: white;
-    }
-  }
-
-  &:hover {
-    .hide {
-      display: block;
-      opacity: 1;
-      width: 100%;
-    }
-    .stay {
-      transform: rotate(45deg);
-      scale: 1.5;
-    }
-  }
+#page {
+  padding: 0 $sidebar-width;
 }
 
-.spacing-bar {
-  align-self: center;
-  justify-content: center;
-  margin: auto;
-  height: 10vh;
-  width: 10vh;
-  background-color: $text-highlight-1;
+#header {
+  height: $header-height;
+  font-family: $monospace;
+  background: $header-background;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 0 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 8;
+  box-shadow: 0 0 10px 0px black;
+
+  .resume-link {
+    font-family: $sans;
+  }
 }
 
 #logo {
   @include text-large;
-  color: $text-highlight-1;
+  color: $highlight-1;
   opacity: 1;
   font-family: "Abril Fatface", cursive;
   font-weight: 600;
@@ -180,32 +173,14 @@ a {
   z-index: 9999;
 }
 
-#header {
-  height: $header-height;
-  font-family: $monospace;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  padding: 0 clamp(1rem, 2vw, 2rem);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  z-index: 100;
-  background: $header-background;
-  box-shadow: 0 0 10px 0px black;
-
-  .resume-link {
-    font-family: $sans;
-  }
-}
-
 #nav-button {
-  z-index: 99999;
+  //Displays on small screen
+  z-index: 9;
   position: fixed;
   top: 0.5rem;
   right: 1rem;
   display: none;
-  font-size: 40px;
+  font-size: 32px;
   outline: none;
   border: none;
   width: 40px;
@@ -218,28 +193,26 @@ a {
   }
 }
 
-//for desktop nav
 .nav {
+  //Nav for desktop display
   @include text-medium;
   @include flex-row;
   height: 100%;
   font-family: $monospace;
   .navlinks-container {
     @include flex-row();
-    width: 100%;
     gap: 5vw;
     justify-content: flex-end;
   }
 
-  //only for mobile nav
   .email-link {
-    display: none;
+    display: none; //only for mobile nav
   }
 
   .navlink {
     white-space: nowrap;
     .navlink-number {
-      color: $text-highlight-1;
+      color: $highlight-1;
       font-family: $monospace;
     }
     .navlink-word {
@@ -249,13 +222,318 @@ a {
     }
     &:hover {
       .navlink-word {
-        color: $text-highlight-1;
+        color: $highlight-1;
+      }
+    }
+  }
+}
+.click-me-container {
+  border: 2px solid $highlight-1;
+  padding: 0.5rem 1rem;
+  color: $highlight-1;
+  letter-spacing: 2px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 300ms ease, color 200ms ease;
+  &:hover {
+    background-color: $highlight-1;
+    color: $header-background;
+    scale: 1.02;
+  }
+}
+
+.image-container {
+  width: $bigger-clamp;
+  position: relative;
+  top: 0.5rem;
+  left: 0.5rem;
+  border: 2px solid $highlight-1;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: -0.5rem;
+  left: -0.5rem;
+}
+// ==================================================================
+
+// Section Defaults -------------------------------------------------
+/* 
+  Sections are defaulted for flex-column, center aligned, and full height.
+  Breakpoint is at 900px
+*/
+section {
+  @include flex-column;
+  margin: 10vh 0;
+  scroll-margin-top: $header-height;
+  .section-header {
+    @include flex-row;
+    @include text-medium;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    width: 100%;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: $text-color-light;
+    gap: 1rem;
+    white-space: nowrap;
+    padding: 0 0.5rem;
+    .header-number {
+      color: $highlight-1;
+      font-family: $monospace;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: clamp(0%, 100vw, 100%);
+      height: 2px;
+      flex-shrink: 1;
+      background-color: $highlight-1;
+    }
+  }
+
+  .section-content {
+    @include flex-column;
+    width: $section-width;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .section-text-block {
+    @include text-small;
+    font-family: $sans;
+    color: $text-color-light;
+    br {
+      margin-bottom: 1rem;
+    }
+  }
+}
+// ==================================================================
+
+// Sections ---------------------------------------------------------
+#hero {
+  font-family: $sans;
+  height: 90vh;
+
+  .hero-intro-text {
+    @include text-huge;
+    @include flex-column;
+    color: $text-color-light;
+    font-weight: 800;
+    text-align: center;
+    .hero-name {
+      color: $highlight-1;
+      white-space: nowrap;
+    }
+  }
+
+  .hero-button {
+    @include text-medium;
+    margin-top: 10vh;
+    padding: 0.5rem 5vw;
+    font-weight: 800;
+    border: 4px solid $highlight-1;
+  }
+}
+
+#about {
+  .about-content {
+    @include flex-row;
+    gap: 5vw;
+    padding: 0 5vw;
+  }
+
+  .about-image-container {
+    width: $inner-clamp;
+    aspect-ratio: 1/1.5;
+    object-fit: cover;
+    border: 0.2rem solid $highlight-1;
+  }
+
+  .about-text-list {
+    @include flex-column;
+    width: $inner-clamp;
+    gap: 5vw;
+  }
+
+  #skills-list {
+    width: $inner-clamp;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .skill-list-item {
+      @include flex-row;
+      @include hover-line;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      align-items: center;
+      color: $highlight-1;
+      line-height: 32px;
+      margin-bottom: 1rem;
+      .skill-list-title {
+        @include text-small;
+        font-family: $monospace;
+      }
+      .skill-list-icon {
+        @include text-large;
       }
     }
   }
 }
 
-@media (max-width: 800px) {
+#projects-container {
+  @include flex-column;
+  @include text-medium;
+  font-family: $sans;
+  color: $text-color-light;
+
+  .project {
+    @include flex-row;
+    padding: 5vh 5vw;
+    position: relative;
+    gap: 2vw;
+    margin-bottom: 3vh;
+
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+
+    .project-image-container {
+      aspect-ratio: 4/3;
+      min-width: 300px; //shrinks if removed
+      .project-image {
+        @include hover-image-scroll;
+      }
+    }
+
+    .project-info-container {
+      @include flex-column;
+      min-width: 300px; //shrinks if removed
+      width: $inner-clamp;
+      gap: 1rem;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .project-description-container {
+      @include text-small;
+      padding: 1rem;
+      background: $dark-4;
+      box-shadow: 4px 4px 10px 0px #222;
+    }
+
+    .project-list-link-container {
+      @include flex-column;
+      @include text-small;
+      align-items: flex-end;
+
+      .project-list {
+        @include flex-row;
+        color: $highlight-1;
+        justify-content: flex-end;
+        width: 80%;
+        flex-wrap: wrap;
+
+        .project-list-item {
+          letter-spacing: 2px;
+          font-family: $monospace;
+          ~ .project-list-item {
+            &::before {
+              content: "/";
+              margin: 0 0.5rem;
+            }
+          }
+        }
+      }
+
+      .project-links {
+        text-align: right;
+        margin: 1rem 0.5rem;
+        .project-link {
+          @include text-large;
+          @include hover-highlight;
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+#contact {
+  .section-content {
+    width: $inner-clamp;
+  }
+
+  .section-text-block {
+    @include flex-column;
+    align-items: flex-start;
+    h2 {
+      margin: 5vh 0;
+      @include text-large;
+    }
+  }
+
+  .contact-form-container {
+    @include text-small();
+    margin: 5vh 0;
+
+    input::placeholder,
+    textarea {
+      color: $text-color-light;
+    }
+    input,
+    textarea {
+      @include text-small;
+      width: 100%;
+      color: $text-color-light;
+      background: $dark-1;
+      margin: 0.5rem 0;
+      padding: 0.5rem 0.5rem;
+      resize: vertical;
+      border: none;
+    }
+  }
+  .click-me-container {
+    width: fit-content;
+    padding: 0.25rem 1rem;
+  }
+}
+
+#footer {
+  @include flex-row;
+  padding: 0 $sidebar-width;
+  font-family: $monospace;
+  @include text-small;
+  color: $text-color-light;
+  background: $dark-2;
+  justify-content: space-between;
+  height: 20vh;
+  box-shadow: 0px -1px 4px 1px rgba(0, 0, 0, 0.5);
+
+  .footer-left {
+    @include flex-column;
+    font-weight: 600;
+
+    p {
+      @include hover-highlight;
+      width: 100%;
+      line-height: 30px;
+      margin: 0.25rem;
+      letter-spacing: 2px;
+    }
+    .footer-icon {
+      scale: 1.5;
+      margin-right: 0.5rem;
+    }
+  }
+}
+// ==================================================================
+
+// Media Queries ----------------------------------------------------
+@media screen and (max-width: 900px) {
   #nav-button {
     display: block;
   }
@@ -276,460 +554,47 @@ a {
       @include flex-column;
       justify-content: flex-start;
       padding-top: 20vh;
-
       background: #666;
       height: 100vh;
       width: 100%;
       gap: 5vh;
     }
 
-    //only for mobile nav
     .email-link {
-      color: $text-highlight-1;
+      display: block;
+      color: $highlight-1;
       position: absolute;
-      bottom: 10vh;
+      bottom: 5vh;
+      font-family: monospace;
     }
 
     .navlink {
       white-space: nowrap;
+      width: auto;
+
       .navlink-number {
-        color: $text-highlight-1;
+        color: $highlight-1;
         font-family: $monospace;
       }
       .navlink-word {
         color: $text-color-light;
-        transition: color 200ms;
         font-family: $monospace;
-      }
-      &:hover {
-        .navlink-word {
-          color: $text-highlight-1;
-        }
-      }
-    }
-
-    .email-link {
-      display: block;
-    }
-  }
-}
-
-.nav-display {
-  width: 90vw;
-  opacity: 1;
-  user-select: auto;
-}
-
-// **********  Outer Layer  **********
-
-/* Section default styles
-  Sections are defaulted for flex-column, center aligned, and full height,
-  for preferred moblie view. Each section has a 801px+ view at the bottom of the file.
-*/
-section {
-  @include flex-column;
-  align-items: center;
-  justify-content: center;
-  margin: 10vh 0;
-  // min-height: calc(100vh - $header-height);
-  scroll-margin-top: $header-height;
-}
-
-.section-header {
-  @include flex-row;
-  @include text-medium;
-  justify-content: flex-start;
-  margin-bottom: 2rem;
-  width: 100%;
-  height: 100%;
-  font-family: $sans;
-  font-weight: 700;
-  text-transform: capitalize;
-  color: $text-color-light;
-  gap: 1rem;
-  white-space: nowrap;
-  padding: 0 0.5rem;
-  .header-number {
-    color: $text-highlight-1;
-    font-family: $monospace;
-  }
-  &::after {
-    content: "";
-    display: block;
-    width: 100%;
-    width: clamp(0%, 100vw, 100%);
-    height: 2px;
-    flex-shrink: 1;
-    background-color: $text-highlight-1;
-  }
-}
-
-.section-content {
-  @include flex-column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: $inner-width;
-}
-
-.section-text-block {
-  @include text-small;
-  width: 100%;
-  height: 100%;
-
-  font-family: $sans;
-  color: $text-color-light;
-  br {
-    margin-bottom: 1rem;
-  }
-}
-
-.click-me-container {
-  border: 1px solid $text-highlight-1;
-  padding: 0.5rem 1rem;
-  color: $text-highlight-1;
-  transition: background-color 400ms, color 200ms;
-  background: transparent;
-  cursor: pointer;
-  &:hover {
-    background-color: $text-highlight-1;
-    color: $header-background;
-  }
-}
-
-// REMOVE CONTENT FROM #PAGE -kevin
-
-#page {
-  @include flex-column;
-  padding: 0 $sidebar-width;
-}
-
-#hero {
-  @include flex-column;
-  font-family: $sans;
-  align-items: center;
-  margin: auto;
-  width: 100%;
-  min-height: 95vh;
-
-  .hero-intro-text {
-    margin-top: 20vh;
-    @include text-huge;
-    font-family: $sans;
-    color: $text-color-light;
-    font-weight: 800;
-    justify-content: center;
-    text-align: center;
-    .hero-name {
-      font-family: inherit;
-      font-weight: inherit;
-      color: $text-highlight-1;
-      font-family: $sans;
-      white-space: nowrap;
-    }
-  }
-
-  .hero-button {
-    @include text-medium;
-    margin-top: 10vh;
-    white-space: nowrap;
-    padding: 0.5rem 5vw;
-
-    letter-spacing: 1.5px;
-    font-weight: 800;
-    cursor: pointer;
-    // border: none;
-    border: 4px solid $text-highlight-1;
-    // border-left: 4px solid $text-highlight-1;
-  }
-
-  .section-content {
-    margin-top: 20vh;
-  }
-}
-
-#about {
-  .about-image-container {
-    width: clamp(300px, 100%, 600px);
-    aspect-ratio: 1/1.5;
-    object-fit: cover;
-    border: 0.2rem solid $text-highlight-1;
-    position: relative;
-    top: 0.5rem;
-    left: 0.5rem;
-
-    .about-image {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      top: -0.5rem;
-      left: -0.5rem;
-      object-fit: cover;
-    }
-  }
-
-  .section-content {
-    @include flex-row;
-    gap: 5vw;
-    padding: 0 5vw;
-  }
-
-  .about-text-list {
-    @include flex-column;
-    gap: 5vw;
-    width: clamp(300px, 100%, 80vw);
-    padding: 0 clamp(20px, 3vw, 50px);
-  }
-  #skills-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.1rem;
-    width: clamp(300px, 100%, 800px);
-    .skill-list-item {
-      display: flex;
-      flex-direction: row;
-
-      width: 100%;
-      color: $text-highlight-1;
-      height: 2rem;
-      line-height: 2rem;
-      font-family: $monospace;
-
-      .section-text-block {
-        height: 100%;
-        width: clamp(320px, 100%, 800px);
-      }
-
-      .skill-list-title {
-        @include text-small;
-      }
-      .skill-list-icon {
-        @include text-huge;
-        width: 1.25rem;
-        height: auto;
-        color: $text-highlight-1;
+        @include hover-highlight;
       }
     }
   }
-}
 
-#projects-container {
-  @include flex-column;
-  @include text-medium;
-  font-family: $sans;
-  color: $text-color-light;
-
-  .project {
-    // opacity: 0.5;
-    width: 100%;
-    padding: 5vh 5vw;
-    position: relative;
-    @include flex-row;
-    gap: 2vw;
-
-    margin-bottom: 32px;
-    &:nth-child(odd) {
-      flex-direction: row-reverse;
-      border-top: none;
-    }
-
-    .project-title {
-      grid-area: title;
-    }
-    .project-image-container {
-      grid-area: image;
-      aspect-ratio: 2/1.8;
-      width: clamp(300px, 100%, 600px);
-      min-width: 300px;
-      border: 2px solid $text-highlight-1;
-      position: relative;
-      top: 4px;
-      left: 4px;
-      object-fit: cover;
-
-      .project-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        vertical-align: top;
-        position: absolute;
-        top: -8px;
-        left: -8px;
-        object-position: 0 0;
-        transition: object-position 500ms;
-        &:hover {
-          object-position: 0 100%;
-        }
-      }
-    }
-    .project-info-container {
-      min-width: 30vw;
-      @include flex-column;
-      gap: 1rem;
-      justify-content: flex-end;
-      align-items: flex-end;
-    }
-
-    .project-description-container {
-      grid-area: description;
-      padding: 1rem;
-      background: #444;
-      box-shadow: 4px 4px 10px 0px #222;
-      @include text-small;
-
-      .project-description {
-      }
-    }
-
-    .project-list-link-container {
-      grid-area: linkList;
-      @include flex-column;
-      @include text-small;
-      align-items: flex-end;
-      width: 100%;
-      .project-list {
-        @include flex-row;
-        color: $text-highlight-1;
-        font-family: $monospace;
-        justify-content: flex-end;
-        width: 80%;
-        flex-wrap: wrap;
-        .project-list-item {
-          ~ .project-list-item {
-            &::before {
-              content: "/";
-              margin: 0 0.5rem;
-            }
-          }
-        }
-      }
-
-      .project-links {
-        text-align: right;
-        gap: 1vw;
-        height: 100%;
-        margin: 1rem 0.5rem;
-        .project-link {
-          @include text-large;
-          color: $text-highlight-1;
-          transition: color 200ms;
-          padding: 0.5rem;
-          animation: bounce 3s infinite;
-          &:hover {
-            color: $text-color-light;
-            animation: bounce 0s infinite;
-          }
-        }
-      }
-    }
-  }
-}
-
-#contact {
-  @include flex-column();
-
-  .section-content {
-    width: clamp(300px, 100%, 540px);
-  }
-  .section-text-block {
-    @include flex-column;
-    h2 {
-      width: 100%;
-      margin: 1rem 0;
-      @include text-large;
-    }
+  .nav-display {
+    width: 90vw;
+    opacity: 1;
+    user-select: auto;
   }
 
-  .contact-form-container {
-    @include flex-column();
-    @include text-small();
-    font-family: $sans;
-    color: white;
-    margin: 2rem 0;
-    label {
-      width: 100%;
-    }
-
-    input::placeholder,
-    textarea {
-      color: $text-color-light;
-    }
-    input,
-    textarea {
-      text-indent: 0;
-      margin: 0.5rem 0;
-      width: 100%;
-      padding: 0.5rem 0.5rem;
-      @include text-small;
-      color: $text-color-light;
-      font-family: $sans;
-      resize: vertical;
-      border: none;
-      background: #222;
-    }
-  }
-}
-
-@media screen and (max-width: 900px) {
-  #header {
-    // background: transparent;
-    box-shadow: none;
-  }
-
-  #left-container,
-  #right-container {
-    // display: none;
-  }
-
-  #hero {
-  }
   #about {
     .section-content {
       @include flex-column;
     }
   }
-}
-
-#footer {
-  @include text-small;
-  @include flex-row;
-  background: $header-background;
-
-  min-height: 20vh;
-  width: 100vw;
-  padding: $sidebar-width;
-  box-shadow: 0px -1px 4px 1px rgba(0, 0, 0, 0.5);
-
-  font-family: $monospace;
-  color: $text-color-light;
-  justify-content: space-between;
-  padding: 2vw 5vw;
-  align-items: center;
-  .footer-left {
-    font-weight: 600;
-  }
-  .footer-left {
-    @include flex-column;
-    text-align: left;
-
-    p,
-    h3 {
-      width: 100%;
-      line-height: 30px;
-      margin: 0.25rem;
-      letter-spacing: 2px;
-      &:hover {
-        color: $text-highlight-1;
-      }
-    }
-    .footer-icon {
-      color: $text-highlight-1;
-      scale: 1.5;
-      margin-right: 0.5rem;
-    }
-  }
-}
-
-@media (max-width: 900px) {
   #projects-container {
     .project {
       @include flex-column;
@@ -750,27 +615,4 @@ section {
     }
   }
 }
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+// ==================================================================

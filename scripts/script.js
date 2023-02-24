@@ -96,61 +96,52 @@ const skills = [
   },
 ];
 
-const skillsList = document.querySelector("#skills-list");
-
 const renderProjects = () => {
   const projectsContainer = document.querySelector("#projects-container");
-
   projects.forEach((project) => {
     const projectContainer = document.createElement("div");
     projectContainer.classList.add("project");
     projectContainer.innerHTML = `
-
-
-
-    <div class="project-image-container">
-    <a href="${project.preview}" target="_blank" class="project-link">
-        <img class="project-image" src=${project.image} alt="screenshot of ${
+<div class="project-image-container image-container">
+  <a href="${project.preview}" target="_blank" class="project-link">
+    <img class="project-image image" src=${project.image} alt="screenshot of ${
       project.name
     }" />
-        </a>
-        </div>
-
-    <div class="project-info-container">
+  </a>
+</div>
+  <div class="project-info-container">
     <h3 class="project-title">${project.title}</h3>
-
-
-
-      <div class="project-description-container">
-          <p class="project-description">${project.description}</p>
-      </div>
-
-      <div class="project-list-link-container">
+    <div class="project-description-container">
+      <p class="project-description">${project.description}</p>
+    </div>
+    <div class="project-list-link-container">
       <ul class="project-list">
       ${project.tech
         .map((tech) => `<li class="project-list-item">${tech}</li>`)
         .join("")}
-    </ul>
-        <div class="project-links">
-          <a href="${
-            project.link
-          }" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
-          <a href="${
-            project.preview
-          }" target="_blank"  class="project-link"><i class="fas fa-window-restore"></i></a>
-        </div>
+      </ul>
+      <div class="project-links">
+        <a  href="${project.link}" 
+            target="_blank" 
+            class="project-link">
+            <i class="fab fa-github"></i>
+        </a>
 
-       </div>
+        <a  href="${project.preview}" 
+            target="_blank"  
+            class="project-link">
+            <i class="fas fa-window-restore"></i>
+        </a>
       </div>
-
     </div>
-  
-    `;
+  </div>
+</div> `;
     projectsContainer.appendChild(projectContainer);
   });
 };
 
 function renderSkills() {
+  const skillsList = document.querySelector("#skills-list");
   skills.forEach((skill) => {
     const { id, title, icon } = skill;
     const skillItem = document.createElement("li");
@@ -167,14 +158,17 @@ function renderSkills() {
   });
 }
 
-const navButton = document.getElementById("nav-button");
-
-const navLinks = [...document.querySelectorAll(".navlink")]
-
+const navLinks = [...document.querySelectorAll(".navlink")];
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     handleNavButton();
   });
+});
+
+const navButton = document.getElementById("nav-button");
+navButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  handleNavButton();
 });
 
 const handleNavButton = () => {
@@ -182,11 +176,5 @@ const handleNavButton = () => {
   nav.classList.toggle("nav-display");
 };
 
-navButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  handleNavButton();
-});
-
 renderSkills();
 renderProjects();
-
