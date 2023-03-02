@@ -3,31 +3,31 @@ const smallProjects = [
     id: 1,
     title: "Kanban Board",
     description: `A simple Kanban board that uses local storage to store user data. Features a drag and drop functionality to move cards between columns. Built with HTML, CSS, JavaScript, and jQuery.`,
-    tech: ["HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "REST API",
-    "JSON",
-    "Vite",
-    "Chakra UI",],
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "REST API",
+      "JSON",
+      "Vite",
+      "Chakra UI",
+    ],
     image: "./assets/kanban-preview.png",
     link: "https://github.com/kev-nr-ley/kanbanboard",
-    preview: "https://app.netlify.com/sites/kevin-kanban"
+    preview: "https://app.netlify.com/sites/kevin-kanban",
   },
   {
     id: 2,
     title: "Calculator",
     description: `A simple calculator that uses local storage to store user data. Features a drag and drop functionality to move cards between columns. Built with HTML, CSS, JavaScript, and jQuery.`,
-    tech: ["HTML",
-    "CSS",
-    "JavaScript",
-    ],
-    image: "./assets/calculator.png",
+    tech: ["HTML", "SCSS", "JavaScript"],
+    image: "./assets/calculator-preview.png",
     link: "https://github.com/kev-nr-ley/calculator",
-    preview: "https://htmlpreview.github.io/?https://github.com/kev-nr-ley/calculator/blob/main/calculator.html"
+    preview:
+      "https://htmlpreview.github.io/?https://github.com/kev-nr-ley/calculator/blob/main/calculator.html",
   },
-]
+];
 const projects = [
   {
     id: 4,
@@ -199,34 +199,34 @@ const renderSmallProjects = () => {
     const projectContainer = document.createElement("div");
     projectContainer.classList.add("project");
     projectContainer.innerHTML = `
-<div class="project-image-container image-container">
-  <a href="${project.preview}" target="_blank" class="project-link">
-    <img class="project-image image" src=${project.image} alt="screenshot of ${
+<div class="small-project-image-container image-container">
+  <a href="${project.preview}" target="_blank" class="small-project-link">
+    <img class="small-project-image image" src=${project.image} alt="screenshot of ${
       project.name
     }" />
   </a>
 </div>
-  <div class="project-info-container">
-    <h3 class="project-title">${project.title}</h3> 
-    <div class="project-description-container">
-      <p class="project-description">${project.description}</p>
+  <div class="small-project-info-container">
+    <h3 class="small-project-title">${project.title}</h3> 
+    <div class="small-project-description-container">
+      <p class="small-project-description">${project.description}</p>
     </div>
-    <div class="project-list-link-container">
-      <ul class="project-list">
+    <div class="small-project-list-link-container">
+      <ul class="small-project-list">
       ${project.tech
-        .map((tech) => `<li class="project-list-item">${tech}</li>`)
+        .map((tech) => `<li class="small-project-list-item">${tech}</li>`)
         .join("")}
       </ul>
-      <div class="project-links">
+      <div class="small-project-links">
         <a  href="${project.link}"
             target="_blank"
-            class="project-link">
+            class="small-project-link">
             <i class="fab fa-github"></i>
         </a>
 
         <a  href="${project.preview}"
             target="_blank"
-            class="project-link">
+            class="small-project-link">
             <i class="fas fa-window-restore"></i>
         </a>
       </div>
@@ -237,8 +237,6 @@ const renderSmallProjects = () => {
     smallProjectsContainer.appendChild(projectContainer);
   });
 };
-
-
 
 function renderSkills() {
   const skillsList = document.querySelector("#skills-list");
