@@ -1,4 +1,55 @@
+const smallProjects = [
+  {
+    id: 1,
+    title: "Kanban Board",
+    description: `A simple Kanban board that uses local storage to store user data. Features a drag and drop functionality to move cards between columns. Built with HTML, CSS, JavaScript, and jQuery.`,
+    tech: ["HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "REST API",
+    "JSON",
+    "Vite",
+    "Chakra UI",],
+    image: "./assets/kanban-preview.png",
+    link: "https://github.com/kev-nr-ley/kanbanboard",
+    preview: "https://app.netlify.com/sites/kevin-kanban"
+  },
+  {
+    id: 2,
+    title: "Calculator",
+    description: `A simple calculator that uses local storage to store user data. Features a drag and drop functionality to move cards between columns. Built with HTML, CSS, JavaScript, and jQuery.`,
+    tech: ["HTML",
+    "CSS",
+    "JavaScript",
+    ],
+    image: "./assets/calculator.png",
+    link: "https://github.com/kev-nr-ley/calculator",
+    preview: "https://htmlpreview.github.io/?https://github.com/kev-nr-ley/calculator/blob/main/calculator.html"
+  },
+]
 const projects = [
+  {
+    id: 4,
+    title: "Restaurant Redesign",
+    bigIcon: " fa-solid fa-fork-and-knife",
+    description: `A redesign of a restaurants website. Working with a UI designer we created a new design 
+      for the website. I used React and Chakra UI to create the website. Check out the GitHub link, preview not yet!`,
+
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "REST API",
+      "JSON",
+      "Vite",
+      "Chakra UI",
+    ],
+    image: "./assets/nongbu.png",
+    link: "https://github.com/kev-nr-ley/nongbuWebsite",
+    preview: "https://penelopepark.netlify.app/",
+  },
   {
     id: 1,
     title: "Digital Artist Portfolio and Shop",
@@ -140,6 +191,55 @@ const renderProjects = () => {
   });
 };
 
+const renderSmallProjects = () => {
+  const smallProjectsContainer = document.querySelector(
+    "#small-projects-container"
+  );
+  smallProjects.forEach((project) => {
+    const projectContainer = document.createElement("div");
+    projectContainer.classList.add("project");
+    projectContainer.innerHTML = `
+<div class="project-image-container image-container">
+  <a href="${project.preview}" target="_blank" class="project-link">
+    <img class="project-image image" src=${project.image} alt="screenshot of ${
+      project.name
+    }" />
+  </a>
+</div>
+  <div class="project-info-container">
+    <h3 class="project-title">${project.title}</h3> 
+    <div class="project-description-container">
+      <p class="project-description">${project.description}</p>
+    </div>
+    <div class="project-list-link-container">
+      <ul class="project-list">
+      ${project.tech
+        .map((tech) => `<li class="project-list-item">${tech}</li>`)
+        .join("")}
+      </ul>
+      <div class="project-links">
+        <a  href="${project.link}"
+            target="_blank"
+            class="project-link">
+            <i class="fab fa-github"></i>
+        </a>
+
+        <a  href="${project.preview}"
+            target="_blank"
+            class="project-link">
+            <i class="fas fa-window-restore"></i>
+        </a>
+      </div>
+    </div>
+        
+  </div>
+</div> `;
+    smallProjectsContainer.appendChild(projectContainer);
+  });
+};
+
+
+
 function renderSkills() {
   const skillsList = document.querySelector("#skills-list");
   skills.forEach((skill) => {
@@ -178,3 +278,4 @@ const handleNavButton = () => {
 
 renderSkills();
 renderProjects();
+renderSmallProjects();
