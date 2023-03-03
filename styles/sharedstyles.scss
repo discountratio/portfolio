@@ -384,6 +384,65 @@ section {
   }
 }
 
+#small-projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+
+
+  .small-project {
+    @include flex-column;
+    background: #444;
+    color: #fff;
+    outline: 1px solid $highlight-1;
+      height: 100%;
+      justify-content: flex-start;
+
+    .small-project-image-container {
+      height: 200px;
+      width: 100%;
+
+      .small-project-image{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        object-position: 50% 20% ;
+      }
+    }
+
+    .small-project-info-container {
+      @include flex-column;
+      justify-content: space-between;;
+      width: 100%;
+      gap: 8px;
+      padding: 8px;
+      align-items: flex-start;
+
+      .small-project-title {
+        @include text-medium;
+      }
+      .small-project-text {
+        background: indianred;
+        @include text-small;
+      }
+
+      .small-project-list-item {
+        letter-spacing: 2px;
+        font-family: $monospace;c
+        ~ .project-list-item {
+          &::before {
+            content: "/";
+            margin: 0 0.5rem;
+          }
+        }
+      }
+      .small-project-link{
+        @include text-large;
+      }
+    }
+  }
+}
+
 #projects-container {
   @include flex-column;
   @include text-medium;

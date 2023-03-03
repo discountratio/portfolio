@@ -2,14 +2,9 @@ const smallProjects = [
   {
     id: 1,
     title: "Kanban Board",
-    description: `A simple Kanban board that uses local storage to store user data. Features a drag and drop functionality to move cards between columns. Built with HTML, CSS, JavaScript, and jQuery.`,
+    description: `Add, edit, and delete tasks. Drag and drop tasks between columns. Built with React, Chakra UI, and Vite.`,
     tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
       "React",
-      "REST API",
-      "JSON",
       "Vite",
       "Chakra UI",
     ],
@@ -20,7 +15,7 @@ const smallProjects = [
   {
     id: 2,
     title: "Calculator",
-    description: `A simple calculator that uses local storage to store user data. Features a drag and drop functionality to move cards between columns. Built with HTML, CSS, JavaScript, and jQuery.`,
+    description: `A simple calculator built with HTML, CSS, and JavaScript.`,
     tech: ["HTML", "SCSS", "JavaScript"],
     image: "./assets/calculator-preview.png",
     link: "https://github.com/kev-nr-ley/calculator",
@@ -28,6 +23,7 @@ const smallProjects = [
       "https://htmlpreview.github.io/?https://github.com/kev-nr-ley/calculator/blob/main/calculator.html",
   },
 ];
+
 const projects = [
   {
     id: 4,
@@ -197,13 +193,13 @@ const renderSmallProjects = () => {
   );
   smallProjects.forEach((project) => {
     const projectContainer = document.createElement("div");
-    projectContainer.classList.add("project");
+    projectContainer.classList.add("small-project");
     projectContainer.innerHTML = `
-<div class="small-project-image-container image-container">
+<div class="small-project-image-container small-image-container">
   <a href="${project.preview}" target="_blank" class="small-project-link">
-    <img class="small-project-image image" src=${project.image} alt="screenshot of ${
-      project.name
-    }" />
+    <img class="small-project-image" src=${
+      project.image
+    } alt="screenshot of ${project.name}" />
   </a>
 </div>
   <div class="small-project-info-container">
@@ -212,11 +208,7 @@ const renderSmallProjects = () => {
       <p class="small-project-description">${project.description}</p>
     </div>
     <div class="small-project-list-link-container">
-      <ul class="small-project-list">
-      ${project.tech
-        .map((tech) => `<li class="small-project-list-item">${tech}</li>`)
-        .join("")}
-      </ul>
+  
       <div class="small-project-links">
         <a  href="${project.link}"
             target="_blank"
@@ -227,7 +219,7 @@ const renderSmallProjects = () => {
         <a  href="${project.preview}"
             target="_blank"
             class="small-project-link">
-            <i class="fas fa-window-restore"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
       </div>
     </div>
