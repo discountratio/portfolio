@@ -399,7 +399,7 @@ section {
       justify-content: flex-start;
 
     .small-project-image-container {
-      height: 200px;
+      height: 160px;
       width: 100%;
 
       .small-project-image{
@@ -414,6 +414,7 @@ section {
       @include flex-column;
       justify-content: space-between;;
       width: 100%;
+      height: 100%;
       gap: 8px;
       padding: 8px;
       align-items: flex-start;
@@ -428,7 +429,8 @@ section {
 
       .small-project-list-item {
         letter-spacing: 2px;
-        font-family: $monospace;c
+        font-family: $monospace;
+        
         ~ .project-list-item {
           &::before {
             content: "/";

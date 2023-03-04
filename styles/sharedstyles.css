@@ -315,7 +315,7 @@ section .section-text-block br {
   justify-content: flex-start;
 }
 #small-projects-container .small-project .small-project-image-container {
-  height: 200px;
+  height: 160px;
   width: 100%;
 }
 #small-projects-container .small-project .small-project-image-container .small-project-image {
@@ -333,6 +333,7 @@ section .section-text-block br {
   justify-content: center;
   justify-content: space-between;
   width: 100%;
+  height: 100%;
   gap: 8px;
   padding: 8px;
   align-items: flex-start;
@@ -348,7 +349,7 @@ section .section-text-block br {
   letter-spacing: 2px;
   font-family: monospace;
 }
-#small-projects-container .small-project .small-project-info-container .small-project-list-item c ~ .project-list-item::before {
+#small-projects-container .small-project .small-project-info-container .small-project-list-item ~ .project-list-item::before {
   content: "/";
   margin: 0 0.5rem;
 }

@@ -3,11 +3,7 @@ const smallProjects = [
     id: 1,
     title: "Kanban Board",
     description: `Add, edit, and delete tasks. Drag and drop tasks between columns. Built with React, Chakra UI, and Vite.`,
-    tech: [
-      "React",
-      "Vite",
-      "Chakra UI",
-    ],
+    tech: ["React", "Vite", "Chakra UI"],
     image: "./assets/kanban-preview.png",
     link: "https://github.com/kev-nr-ley/kanbanboard",
     preview: "https://app.netlify.com/sites/kevin-kanban",
@@ -29,8 +25,8 @@ const projects = [
     id: 4,
     title: "Restaurant Redesign",
     bigIcon: " fa-solid fa-fork-and-knife",
-    description: `A redesign of a restaurants website. Working with a UI designer we created a new design 
-      for the website. I used React and Chakra UI to create the website. Check out the GitHub link, preview not yet!`,
+    description:
+      "Worked with a UI/UX designer to responsively impleement their website redesign. Reduced loading times by 50% with image optimization and reducing HTTP requests. ",
 
     tech: [
       "HTML",
@@ -197,9 +193,7 @@ const renderSmallProjects = () => {
     projectContainer.innerHTML = `
 <div class="small-project-image-container small-image-container">
   <a href="${project.preview}" target="_blank" class="small-project-link">
-    <img class="small-project-image" src=${
-      project.image
-    } alt="screenshot of ${project.name}" />
+    <img class="small-project-image" src=${project.image} alt="screenshot of ${project.name}" />
   </a>
 </div>
   <div class="small-project-info-container">
