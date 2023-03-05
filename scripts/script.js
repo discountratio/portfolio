@@ -31,7 +31,7 @@ const projects = [
     tech: ["React", "Vite", "Chakra UI", "JavaScript", "JSON"],
     image: "./assets/nongbu.png",
     link: "https://github.com/kev-nr-ley/nongbuWebsite",
-    preview: "https://taupe-torte-e5d24b.netlify.app/",
+    preview: "https://nongbu.netlify.app/",
   },
   {
     id: 1,
