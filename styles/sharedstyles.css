@@ -81,7 +81,7 @@ a {
 }
 
 .nav {
-  font-size: clamp(1.25rem, 1.25rem + 1vw, 1.25rem);
+  font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -99,9 +99,6 @@ a {
 }
 .nav .email-link {
   display: none;
-}
-.nav .navlink {
-  white-space: nowrap;
 }
 .nav .navlink .navlink-number {
   color: #eecc33;
@@ -302,6 +299,9 @@ section .section-text-block br {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-self: center;
 }
 #small-projects-container .small-project {
   display: flex;
@@ -342,7 +342,6 @@ section .section-text-block br {
   font-size: clamp(1.25rem, 1.25rem + 1vw, 1.25rem);
 }
 #small-projects-container .small-project .small-project-info-container .small-project-text {
-  background: indianred;
   font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
 }
 #small-projects-container .small-project .small-project-info-container .small-project-list-item {
@@ -557,7 +556,9 @@ section .section-text-block br {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    align-items: flex-start;
     justify-content: flex-start;
+    padding: 0 10vw;
     padding-top: 20vh;
     background: #666;
     height: 100vh;

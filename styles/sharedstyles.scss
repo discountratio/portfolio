@@ -195,7 +195,7 @@ a {
 
 .nav {
   //Nav for desktop display
-  @include text-medium;
+  @include text-small;
   @include flex-row;
   height: 100%;
   font-family: $monospace;
@@ -210,7 +210,7 @@ a {
   }
 
   .navlink {
-    white-space: nowrap;
+    // white-space: nowrap;
     .navlink-number {
       color: $highlight-1;
       font-family: $monospace;
@@ -388,31 +388,35 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 2rem;
+  width: fit-content;
+  align-self: center;
+
 
 
   .small-project {
     @include flex-column;
+
     background: #444;
     color: #fff;
     outline: 1px solid $highlight-1;
-      height: 100%;
-      justify-content: flex-start;
+    height: 100%;
+    justify-content: flex-start;
 
     .small-project-image-container {
       height: 160px;
       width: 100%;
 
-      .small-project-image{
+      .small-project-image {
         object-fit: cover;
         width: 100%;
         height: 100%;
-        object-position: 50% 20% ;
+        object-position: 50% 20%;
       }
     }
 
     .small-project-info-container {
       @include flex-column;
-      justify-content: space-between;;
+      justify-content: space-between;
       width: 100%;
       height: 100%;
       gap: 8px;
@@ -423,14 +427,13 @@ section {
         @include text-medium;
       }
       .small-project-text {
-        background: indianred;
         @include text-small;
       }
 
       .small-project-list-item {
         letter-spacing: 2px;
         font-family: $monospace;
-        
+
         ~ .project-list-item {
           &::before {
             content: "/";
@@ -438,7 +441,7 @@ section {
           }
         }
       }
-      .small-project-link{
+      .small-project-link {
         @include text-large;
       }
     }
@@ -613,7 +616,9 @@ section {
 
     .navlinks-container {
       @include flex-column;
+      align-items: flex-start;
       justify-content: flex-start;
+      padding: 0 10vw;
       padding-top: 20vh;
       background: #666;
       height: 100vh;

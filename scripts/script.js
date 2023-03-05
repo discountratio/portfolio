@@ -23,24 +23,15 @@ const smallProjects = [
 const projects = [
   {
     id: 4,
-    title: "Restaurant Redesign",
+    title: "NongBu Korean Eatery Redesign",
     bigIcon: " fa-solid fa-fork-and-knife",
     description:
       "Worked with a UI/UX designer to responsively implement their website redesign. Reduced loading times by 50% with image optimization and reducing HTTP requests. ",
 
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React",
-      "REST API",
-      "JSON",
-      "Vite",
-      "Chakra UI",
-    ],
+    tech: ["React", "Vite", "Chakra UI", "JavaScript", "JSON"],
     image: "./assets/nongbu.png",
     link: "https://github.com/kev-nr-ley/nongbuWebsite",
-    preview: "https://penelopepark.netlify.app/",
+    preview: "https://taupe-torte-e5d24b.netlify.app/",
   },
   {
     id: 1,
