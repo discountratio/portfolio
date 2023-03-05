@@ -26,7 +26,7 @@ const projects = [
     title: "Restaurant Redesign",
     bigIcon: " fa-solid fa-fork-and-knife",
     description:
-      "Worked with a UI/UX designer to responsively impleement their website redesign. Reduced loading times by 50% with image optimization and reducing HTTP requests. ",
+      "Worked with a UI/UX designer to responsively implement their website redesign. Reduced loading times by 50% with image optimization and reducing HTTP requests. ",
 
     tech: [
       "HTML",
