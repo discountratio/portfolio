@@ -156,13 +156,15 @@ const renderProjects = () => {
       </ul>
       <div class="project-links">
         <a  href="${project.link}" 
+        name="github link for ${project.title}"
             target="_blank" 
             class="project-link">
             <i class="fab fa-github"></i>
         </a>
 
         <a  href="${project.preview}" 
-            target="_blank"  
+        name="preview link for ${project.title}"    
+        target="_blank"  
             class="project-link">
             <i class="fas fa-window-restore"></i>
         </a>
@@ -196,12 +198,14 @@ const renderSmallProjects = () => {
   
       <div class="small-project-links">
         <a  href="${project.link}"
-            target="_blank"
+        name="github link for ${project.title}" 
+        target="_blank"
             class="small-project-link">
             <i class="fab fa-github"></i>
         </a>
 
         <a  href="${project.preview}"
+        name="preview link for ${project.title}"    
             target="_blank"
             class="small-project-link">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
