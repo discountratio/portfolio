@@ -4,7 +4,7 @@ const smallProjects = [
     title: "Kanban Board",
     description: `Add, edit, and delete tasks. Drag and drop tasks between columns. Built with React, Chakra UI, and Vite.`,
     tech: ["React", "Vite", "Chakra UI"],
-    image: "./assets/kanban-preview.png",
+    image: "./assets/preview-kanban.png",
     link: "https://github.com/kev-nr-ley/kanbanboard",
     preview: "https://app.netlify.com/sites/kevin-kanban",
   },
@@ -13,7 +13,7 @@ const smallProjects = [
     title: "Calculator",
     description: `A simple calculator built with HTML, CSS, and JavaScript.`,
     tech: ["HTML", "SCSS", "JavaScript"],
-    image: "./assets/calculator-preview.png",
+    image: "./assets/preview-calculator.png",
     link: "https://github.com/kev-nr-ley/calculator",
     preview:
       "https://htmlpreview.github.io/?https://github.com/kev-nr-ley/calculator/blob/main/calculator.html",
@@ -29,7 +29,7 @@ const projects = [
       "Worked with a UI/UX designer to responsively implement their website redesign. Reduced loading times by 50% with image optimization and reducing HTTP requests. ",
 
     tech: ["React", "Vite", "Chakra UI", "JavaScript", "JSON"],
-    image: "./assets/nongbu.png",
+    image: "./assets/preview-nongbu.png",
     link: "https://github.com/kev-nr-ley/nongbuWebsite",
     preview: "https://nongbu.netlify.app/",
   },
@@ -40,7 +40,7 @@ const projects = [
     description:
       " Portfolio and shop for an artist with a gallery of AI-generated assets and custom JavaScript functions to create and populate the dynamic gallery. Features a shopping cart that uses local storage to store user shopping data and background moving gradient UI achieved via CSS animation.",
     tech: ["HTML", "SCSS", "JavaScript", "JSON"],
-    image: "./assets/penelopeparkpreview.png",
+    image: "./assets/preview-penelopepark.png",
     link: "https://github.com/discountratio/rabbit-website",
     preview: "https://penelopepark.netlify.app/",
   },
@@ -60,7 +60,7 @@ const projects = [
       "Vite",
       "Chakra UI",
     ],
-    image: "./assets/userprofilepreview.png",
+    image: "./assets/preview-userprofile.png",
     link: "https://github.com/discountratio/userprofile",
     preview:
       "https://htmlpreview.github.io/?https://github.com/discountratio/userprofile/blob/main/dist/index.html",
@@ -72,7 +72,7 @@ const projects = [
     description:
       "You’re on my portfolio site! A personal portfolio project for a web developer that features a responsive design and custom JavaScript functions to create a dynamic gallery of projects and dynamic skills list. Check out the GitHub link.",
     tech: ["HTML", "CSS", "JavaScript"],
-    image: "./assets/kevinpreview.png",
+    image: "./assets/preview-kevinriley.png",
     link: "/index.html",
     preview: "https://kevinriley.netlify.app",
   },
