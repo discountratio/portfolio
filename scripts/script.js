@@ -21,6 +21,19 @@ const smallProjects = [
 ];
 
 const projects = [
+    {
+    id: 5,
+    title: "Northern Lights Animal Hospital",
+    bigIcon: " fa-solid fa-dog",
+    description:
+   "Fully responsive 6-page website for a veterinary clinic created using React, Chakra UI, Vite, and NPM. Created with accessibility in mind - meets WCAG standards. "
+
+    tech: ["React", "Vite", "Chakra UI", "JavaScript", "JSON"],
+    image: "./assets/preview-northernlights.webp",
+    link: "https://github.com/kev-nr-ley/northernlightsanimalhospital",
+    preview: "https://northernlightsanimalhospital.netlify.app/",
+  },
+
   {
     id: 4,
     title: "NongBu Korean Eatery Redesign",
