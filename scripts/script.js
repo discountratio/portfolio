@@ -22,6 +22,17 @@ const smallProjects = [
 
 const projects = [
   {
+    id: 6,
+    title: "Canadian Galvanizing",
+    bigIcon: " fa-solid fa-industry",
+    description:
+      "Fully responsive 6-page website for a galvanizing company created using React, Chakra UI, Vite, and NPM. Created with accessibility in mind - meets WCAG standards. ",
+    tech: ["Wordpress", "Elementor Pro", "CSS", "JavaScript"],
+    image: "./assets/preview-canadianmetal.webp",
+    link: "https://cocktailpartyca.wpcomstaging.com/",
+    preview: "https://cocktailpartyca.wpcomstaging.com/",
+  },
+  {
     id: 5,
     title: "Northern Lights Animal Hospital",
     bigIcon: " fa-solid fa-dog",
@@ -113,8 +124,8 @@ const skills = [
   },
   {
     id: 5,
-    title: "Node",
-    icon: "fab fa-node-js",
+    title: "Bootstrap",
+    icon: "fab fa-bootstrap",
   },
   {
     id: 6,
@@ -133,12 +144,12 @@ const skills = [
   },
   {
     id: 9,
-    title: "codepen",
+    title: "CodePen",
     icon: "fab fa-codepen",
   },
   {
     id: 10,
-    title: "npm",
+    title: "NPM",
     icon: "fab fa-npm",
   },
 ];

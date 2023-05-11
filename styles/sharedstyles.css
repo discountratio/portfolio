@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Nova+Mono:wght@100;200;300;400;500;600;700;800;900&family=Syne+Mono:wght@100;200;300;400;500;600;700;800;900&family=Spline+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&family=Red+Hat+Mono:wght@100;200;300;400;500;600;700;800;900&&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -33,7 +33,7 @@ a {
 
 #header {
   height: 60px;
-  font-family: monospace;
+  font-family: "Spline Sans Mono", monospace;
   background: #222;
   width: 100%;
   position: fixed;
@@ -87,7 +87,7 @@ a {
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-family: monospace;
+  font-family: "Spline Sans Mono", monospace;
 }
 .nav .navlinks-container {
   display: flex;
@@ -102,12 +102,12 @@ a {
 }
 .nav .navlink .navlink-number {
   color: #eecc33;
-  font-family: monospace;
+  font-family: "Spline Sans Mono", monospace;
 }
 .nav .navlink .navlink-word {
   color: #eee;
   transition: color 200ms;
-  font-family: monospace;
+  font-family: "Spline Sans Mono", monospace;
 }
 .nav .navlink:hover .navlink-word {
   color: #eecc33;
@@ -177,7 +177,7 @@ section .section-header {
 }
 section .section-header .header-number {
   color: #eecc33;
-  font-family: monospace;
+  font-family: "Spline Sans Mono", monospace;
 }
 section .section-header::after {
   content: "";
@@ -264,8 +264,6 @@ section .section-text-block br {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  position: relative;
-  padding-bottom: 0px;
   justify-content: flex-start;
   flex-wrap: nowrap;
   align-items: center;
@@ -273,23 +271,13 @@ section .section-text-block br {
   line-height: 32px;
   margin-bottom: 1rem;
 }
-#about #skills-list .skill-list-item::after {
-  content: "";
-  width: 0%;
-  height: 0px;
-  background-color: #eecc33;
-  position: absolute;
-  bottom: -2px;
-  left: 0px;
-  transition: width 400ms ease;
-}
-#about #skills-list .skill-list-item:hover:after {
-  width: 100%;
-  height: 2px;
+#about #skills-list .skill-list-item:hover .skill-list-icon {
+  scale: 1.2;
+  transition: scale 200ms;
 }
 #about #skills-list .skill-list-item .skill-list-title {
   font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
-  font-family: monospace;
+  font-family: "Spline Sans Mono", monospace;
 }
 #about #skills-list .skill-list-item .skill-list-icon {
   font-size: clamp(1.5rem, 1.5rem + 1vw, 1.8rem);
@@ -309,7 +297,7 @@ section .section-text-block br {
   align-items: center;
   justify-content: center;
   background: #444;
-  color: #fff;
+  color: #eee;
   outline: 1px solid #eecc33;
   height: 100%;
   justify-content: flex-start;
@@ -346,7 +334,7 @@ section .section-text-block br {
 }
 #small-projects-container .small-project .small-project-info-container .small-project-list-item {
   letter-spacing: 2px;
-  font-family: monospace;
+  font-family: "Spline Sans Mono", monospace;
 }
 #small-projects-container .small-project .small-project-info-container .small-project-list-item ~ .project-list-item::before {
   content: "/";
@@ -430,7 +418,7 @@ section .section-text-block br {
 }
 #projects-container .project .project-list-link-container .project-list .project-list-item {
   letter-spacing: 2px;
-  font-family: monospace;
+  font-family: "Spline Sans Mono", monospace;
 }
 #projects-container .project .project-list-link-container .project-list .project-list-item ~ .project-list-item::before {
   content: "/";
@@ -498,7 +486,7 @@ section .section-text-block br {
   align-items: center;
   justify-content: center;
   padding: 0 clamp(40px, 100%, 4vw);
-  font-family: monospace;
+  font-family: "Spline Sans Mono", monospace;
   font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
   color: #eee;
   background: #222;
@@ -539,7 +527,7 @@ section .section-text-block br {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: monospace;
+    font-family: "Spline Sans Mono", monospace;
     width: 0vw;
     height: 100vh;
     position: fixed;
@@ -578,11 +566,11 @@ section .section-text-block br {
   }
   .nav .navlink .navlink-number {
     color: #eecc33;
-    font-family: monospace;
+    font-family: "Spline Sans Mono", monospace;
   }
   .nav .navlink .navlink-word {
     color: #eee;
-    font-family: monospace;
+    font-family: "Spline Sans Mono", monospace;
     color: #eecc33;
     transition: 200ms;
   }
