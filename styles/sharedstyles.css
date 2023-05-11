@@ -378,22 +378,22 @@ section .section-text-block br {
 #projects-container .project:nth-child(odd) {
   flex-direction: row-reverse;
 }
-#projects-container .project .project-image-container {
+#projects-container .project .project .image-container {
   aspect-ratio: 4/3;
   min-width: 300px;
 }
-#projects-container .project .project-image-container .project-image {
+#projects-container .project .project .image-container .project-image {
   vertical-align: top;
   -o-object-position: 0 0;
      object-position: 0 0;
   transition: object-position 500ms;
   transition: object-position 500ms, -o-object-position 500ms;
 }
-#projects-container .project .project-image-container .project-image:hover {
+#projects-container .project .project .image-container .project-image:hover {
   -o-object-position: 0 100%;
      object-position: 0 100%;
 }
-#projects-container .project .project-info-container {
+#projects-container .project .project .info-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -404,13 +404,13 @@ section .section-text-block br {
   justify-content: flex-end;
   align-items: flex-end;
 }
-#projects-container .project .project-description-container {
+#projects-container .project .project .description-container {
   font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
   padding: 1rem;
   background: #444;
   box-shadow: 4px 4px 10px 0px #222;
 }
-#projects-container .project .project-list-link-container {
+#projects-container .project .project .list-link-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -418,7 +418,7 @@ section .section-text-block br {
   font-size: clamp(0.75rem, 0.75rem + 0.25vw, 1rem);
   align-items: flex-end;
 }
-#projects-container .project .project-list-link-container .project-list {
+#projects-container .project .project .list-link-container ul {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -428,25 +428,25 @@ section .section-text-block br {
   width: 80%;
   flex-wrap: wrap;
 }
-#projects-container .project .project-list-link-container .project-list .project-list-item {
+#projects-container .project .project .list-link-container ul li {
   letter-spacing: 2px;
   font-family: monospace;
 }
-#projects-container .project .project-list-link-container .project-list .project-list-item ~ .project-list-item::before {
+#projects-container .project .project .list-link-container ul li ~ .project-list-item::before {
   content: "/";
   margin: 0 0.5rem;
 }
-#projects-container .project .project-list-link-container .project-links {
+#projects-container .project .project .list-link-container .project .links-container {
   text-align: right;
   margin: 1rem 0.5rem;
 }
-#projects-container .project .project-list-link-container .project-links .project-link {
+#projects-container .project .project .list-link-container .project .links-container .link {
   font-size: clamp(1.5rem, 1.5rem + 1vw, 1.8rem);
   color: #eecc33;
   transition: 200ms;
   padding: 0.5rem;
 }
-#projects-container .project .project-list-link-container .project-links .project-link:hover {
+#projects-container .project .project .list-link-container .project .links-container .link:hover {
   color: #eee;
 }
 

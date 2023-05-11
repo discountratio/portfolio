@@ -25,10 +25,12 @@ const projects = [
     id: 6,
     title: "Galvanizing Shop",
     bigIcon: " fa-solid fa-wrench",
-    description: "A redesign of a local galvanzing shop's website built using WordPress and Elementor Pro. ",
+    description:
+      "A redesign of a local galvanzing shop's website built using WordPress and Elementor Pro. ",
     tech: ["Wordpress", "Elementor", "CSS"],
     image: "./assets/preview-canadianmetal.webp",
     link: "https://cocktailpartyca.wpcomstaging.com/",
+    preview: "https://cocktailpartyca.wpcomstaging.com/",
   },
   {
     id: 5,
@@ -158,41 +160,45 @@ const renderProjects = () => {
     const projectContainer = document.createElement("div");
     projectContainer.classList.add("project");
     projectContainer.innerHTML = `
-<div class="project-image-container image-container">
-  <a href="${project.preview}" target="_blank" class="project-link">
+<div class="image-container">
+  <a href="${project.preview}" 
+  target="_blank" 
+  class="link"
+  >
     <img class="project-image image" src=${project.image} alt="screenshot of ${
       project.title
     }" />
   </a>
 </div>
-  <div class="project-info-container">
+  <div class="info-container">
     <h3 class="project-title">${project.title}</h3>
-    <div class="project-description-container">
-      <p class="project-description">${project.description}</p>
+   
+    <div class="description-container">
+      <p class="description">${project.description}</p>
     </div>
-    <div class="project-list-link-container">
-      <ul class="project-list">
-      ${project.tech
-        .map((tech) => `<li class="project-list-item">${tech}</li>`)
-        .join("")}
+
+<div class="list-link-container">
+      <ul>
+      ${project.tech.map((tech) => `<li>${tech}</li>`).join("")}
       </ul>
-      <div class="project-links">
-        <a  href="${project.link}" 
+
+
+      <div class="links-container">
+        <a href="${project.link}" 
         aria-label="github link for ${project.title}"
-        aria
             target="_blank" 
             class="project-link">
-            <i class="fab fa-github"></i>
+            <i class="fab fa-github"/>
         </a>
 
-        <a  href="${project.preview}" 
+        <a href="${project.preview}" 
         aria-label="preview link for ${project.title}"    
         target="_blank"  
-            class="project-link">
-            <i class="fas fa-window-restore"></i>
+            class="preview">
+            <i class="fas fa-window-restore"/>
         </a>
       </div>
-    </div>
+      </div>
   </div>
 </div> `;
     projectsContainer.appendChild(projectContainer);
@@ -220,7 +226,7 @@ const renderSmallProjects = () => {
     <div class="small-project-list-link-container">
   
       <div class="small-project-links">
-        <a  href="${project.link}"
+        <a href="${project.link}"
         
         aria-label="github link for ${project.title}" 
         target="_blank"
@@ -228,7 +234,7 @@ const renderSmallProjects = () => {
             <i class="fab fa-github"></i>
         </a>
 
-        <a  href="${project.preview}"
+        <a href="${project.preview}"
         aria-label="preview link for ${project.title}"    
             target="_blank"
             class="small-project-link">
