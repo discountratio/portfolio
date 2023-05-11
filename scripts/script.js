@@ -22,6 +22,15 @@ const smallProjects = [
 
 const projects = [
   {
+    id: 6,
+    title: "Galvanizing Shop",
+    bigIcon: " fa-solid fa-wrench",
+    description: "A redesign of a local galvanzing shop's website built using WordPress and Elementor Pro. ",
+    tech: ["Wordpress", "Elementor", "CSS"],
+    image: "./assets/preview-canadianmetal.webp",
+    link: "https://cocktailpartyca.wpcomstaging.com/",
+  },
+  {
     id: 5,
     title: "Northern Lights Animal Hospital",
     bigIcon: " fa-solid fa-dog",
